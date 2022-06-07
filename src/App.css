@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'LeferiPoint-WhiteObliqueA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+*{
+  font-family: 'LeferiPoint-WhiteObliqueA';
+}
+
+#navbar *{
+  color: white;
+  font-size: 14px;
+}
+
+#navbar img{
+  margin-left: 10px;
+  margin-right: 30px;
+}
+
+#navbar button{
+  border-color: red;
+}
