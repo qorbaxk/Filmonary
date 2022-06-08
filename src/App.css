@@ -14,8 +14,13 @@
 
 *{
   font-family: 'Hahmlet-Light';
+  
 }
 
+.back{
+  background-color: black;
+  color: white;
+}
 .main{
   overflow: hidden;
   -ms-overflow-style: none; /* IE and Edge */
@@ -64,7 +69,7 @@
   width: 100%;
   height: 800px;
   content: '';
-  background: linear-gradient(to right, black, transparent);
+  background: linear-gradient(to top, black, transparent);
 
 }
 
@@ -78,4 +83,9 @@
 .banner-info h1{
   font-family: 'Hahmlet-SemiBold';
   
+}
+
+.card-area h1{
+  font-family: 'Hahmlet-SemiBold';
+  margin-left: 100px;
 }
