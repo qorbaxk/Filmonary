@@ -1,12 +1,31 @@
 @font-face {
-  font-family: 'LeferiPoint-WhiteObliqueA';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff') format('woff');
+  font-family: 'Hahmlet-SemiBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-SemiBold.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
-*{
-  font-family: 'LeferiPoint-WhiteObliqueA';
+
+@font-face {
+  font-family: 'Hahmlet-Light';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-Light.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
+
+*{
+  font-family: 'Hahmlet-Light';
+}
+
+.main{
+  overflow: hidden;
+  -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.main::-webkit-scrollbar{
+  width: 0;
+  display: none; /* Chrome, Safari, Opera*/
+}
+
 
 #navbar *{
   color: white;
@@ -20,4 +39,43 @@
 
 #navbar button{
   border-color: red;
+  background-color: black;
+}
+
+#navbar button:hover{
+  background-color: red;
+  color:black;
+}
+
+.nav-item{
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.banner{
+  width: 1920px;
+  height: 800px;
+  display: flex;
+  align-items: center;
+}
+.banner::before{
+  position: absolute;
+  left:0;
+  width: 100%;
+  height: 800px;
+  content: '';
+  background: linear-gradient(to right, black, transparent);
+
+}
+
+.banner-info{
+  width: 25%;
+  margin-left: 100px;
+  z-index: 1;
+  color: white;
+}
+
+.banner-info h1{
+  font-family: 'Hahmlet-SemiBold';
+  
 }

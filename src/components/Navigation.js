@@ -8,6 +8,7 @@ import {
   NavDropdown,
   FormControl,
 } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   return (
@@ -23,9 +24,12 @@ const Navigation = () => {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Movies</Nav.Link>
-            <Nav.Link href="#action3">My Favorite</Nav.Link>
+            <Link to="/" className="nav-item">
+              Home
+            </Link>
+            <Link to="/movies" className="nav-item">
+              Movies
+            </Link>
           </Nav>
           <Form className="d-flex">
             <FormControl
@@ -34,9 +38,7 @@ const Navigation = () => {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">
-               s
-            </Button>
+            <Button>s</Button>
           </Form>
         </Navbar.Collapse>
       </Container>
