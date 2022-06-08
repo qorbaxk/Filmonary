@@ -9,6 +9,7 @@ const Banner = ({ movie }) => {
           "url(" +
           `https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces${movie.backdrop_path}` +
           ")",
+          backgroundPosition:"center"
       }}
     >
       <div className="banner-info">

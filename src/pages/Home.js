@@ -21,11 +21,12 @@ const Home = () => {
   //false일때는 데이터 도착 후 또는 에러났을때
 
   if (loading) {
-    return <ClipLoader color="#ffffff" loading={loading} size={150} />;
-  }
+    return <div className="spinner"><ClipLoader color="red"  loading={loading} size={150} /></div>
+    
+  } 
   return (
     <div className="back">
-      <Banner movie={popularMovies.results[0]} />
+      <Banner movie={popularMovies.results[0]}/>
       <div className="card-area">
         <h1>Popular Movie</h1>
         <MovieSlide movies={popularMovies} />
