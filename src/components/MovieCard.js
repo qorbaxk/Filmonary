@@ -25,10 +25,11 @@ const MovieCard = ({ item }) => {
             {item.genre_ids.map((id) => (
               <label>{genreList.find((item) => item.id == id).name}ㅤ</label>
             ))}
-           
+
             <div className="star">⭐ {item.vote_average}</div>
-            <div className={item.adult ?"r-red":"r-green"}>{item.adult ? "R-rated" : "G-rated"}</div>
-            
+            <div className={item.adult ? "r-red" : "r-green"}>
+              {item.adult ? "R-rated" : "G-rated"}
+            </div>
           </div>
         </div>
       </div>

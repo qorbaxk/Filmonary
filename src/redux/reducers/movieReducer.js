@@ -7,6 +7,7 @@ let initialState = {
     loading:true,
     genreList:[],
 
+
 };
 
 const movieSlice = createSlice({
@@ -19,6 +20,7 @@ const movieSlice = createSlice({
             state.upComingMovies = action.payload.upComingMovies;
             state.loading = false;
             state.genreList = action.payload.genreList;
+          
         },
         getMoviesRequest(state,action){
             state.loading = true;

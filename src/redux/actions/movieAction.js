@@ -27,19 +27,23 @@ function getMovies() {
         `/genre/movie/list?api_key=${API_KEY}&language=en-US`
       )
 
+  
+
       //3개의 데이터가 다 올때까지 기다림
       //하나하나 await 할 필요없이 이렇게 쓰면됨
       let [popularMovies, topRatedMovies, upComingMovies, genreList] = await Promise.all([
         popularMovieApi,
         topRatedApi,
         upComingApi,
-        genreApi
+        genreApi,
+      
       ]);
 
       console.log(popularMovies);
       console.log(topRatedMovies);
       console.log(upComingMovies);
-      console.log(genreList);
+      console.log("장르",genreList);
+  
 
       dispatch(
         movieActions.getMainMovies({
@@ -47,6 +51,7 @@ function getMovies() {
           topRatedMovies: topRatedMovies.data,
           upComingMovies: upComingMovies.data,
           genreList: genreList.data.genres,
+  
         })
       );
     } catch (error) {

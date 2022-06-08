@@ -94,13 +94,11 @@
   font-family: "GmarketSansBold";
 }
 
-
 /*카드 디자인*/
 .card-area h1 {
   font-family: "GmarketSansBold";
   margin-left: 100px;
   font-size: 30px;
-
 }
 
 .card-slide {
@@ -117,32 +115,31 @@
   background-position: center;
   border-radius: 10px;
 }
-.content2{
+.content2 {
   text-align: left;
   width: 300px;
-  height: calc(300px / 1.78);
+  height: fit-content;
 }
-.content2 h5{
+.content2 h5 {
   font-family: "GmarketSansBold";
 }
-.star{
-  margin-top:10px;
-
+.star {
+  margin-top: 10px;
 }
-.r-red{
+.r-red {
   color: red;
   font-weight: bold;
 }
-.r-green{
-color: rgb(0, 180, 0);
-font-weight: bold;
-
+.r-green {
+  color: rgb(0, 180, 0);
+  font-weight: bold;
 }
-.content2 label{
+.content2 label {
   font-size: 12px;
 }
 .card {
   background-color: black;
+  height: fit-content;
 }
 
 .slide.slide2 {
@@ -208,10 +205,8 @@ font-weight: bold;
   position: absolute;
   width: 60px;
   height: 4px;
-  bottom: 15px;
-  left: 50%;
+  bottom: 3px;
   left: 50%;
   transform: translateX(-50%);
   background: red;
 }
-
