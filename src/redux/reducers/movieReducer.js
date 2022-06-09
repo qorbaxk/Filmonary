@@ -30,6 +30,7 @@ const movieSlice = createSlice({
       state.detailMovies = action.payload.detailMovies;
       state.loading = false;
     },
+
   },
 });
 

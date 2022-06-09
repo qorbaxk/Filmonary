@@ -80,4 +80,6 @@ function getMovieDetail(id) {
   };
 }
 
+
+
 export const movieAction = { getMovies, getMovieDetail };

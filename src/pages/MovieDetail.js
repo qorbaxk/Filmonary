@@ -7,15 +7,17 @@ import DetailBanner from "../components/DetailBanner";
 import MovieExplain from "../components/MovieExplain";
 import Reviews from "../components/Reviews";
 
+
 const MovieDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+ 
 
   const { detailMovies, loading } = useSelector((state) => state.mov);
 
-  useEffect(async () => {
+  useEffect(() => {
     dispatch(movieAction.getMovieDetail(id));
-  }, []);
+  }, [id]);
 
   if (loading) {
     return (
