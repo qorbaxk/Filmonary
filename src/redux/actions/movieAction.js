@@ -3,6 +3,7 @@ import { movieActions } from "../reducers/movieReducer";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
+//영화 데이터 가져오기
 function getMovies() {
   return async (dispatch) => {
     try {
@@ -54,7 +55,7 @@ function getMovies() {
   };
 }
 
-//디테일페이지 함수
+//디테일페이지
 function getMovieDetail(id) {
   return async (dispatch) => {
     try {
@@ -64,13 +65,25 @@ function getMovieDetail(id) {
         `/movie/${id}?api_key=${API_KEY}&language=en-US`
       );
 
-      let [detailMovies] = await Promise.all([detailMovieApi]);
+      const movieReviewApi = api.get(
+        `/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`
+      );
+      
+      const movieRecommendApi = api.get(
+        `/movie/${id}/recommendations?api_key=${API_KEY}&language=en-US&page=1`
+      )
+
+      let [detailMovies, movieReview, movieRecommend] = await Promise.all([detailMovieApi, movieReviewApi, movieRecommendApi]);
 
       console.log("상세영화", detailMovies);
+      console.log("리뷰", movieReview);
+      console.log("추천영화",movieRecommend);
 
       dispatch(
         movieActions.getDetailMovies({
           detailMovies: detailMovies.data,
+          movieReview: movieReview.data,
+          movieRecommend : movieRecommend.data
         })
       );
     } catch (error) {
@@ -80,6 +93,4 @@ function getMovieDetail(id) {
   };
 }
 
-
-
-export const movieAction = { getMovies, getMovieDetail };
+export const movieAction = { getMovies, getMovieDetail,  };

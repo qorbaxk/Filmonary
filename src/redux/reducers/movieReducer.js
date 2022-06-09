@@ -7,6 +7,8 @@ let initialState = {
   loading: true,
   genreList: [],
   detailMovies: {},
+  movieReview:{},
+  movieRecommend:{},
 };
 
 const movieSlice = createSlice({
@@ -28,8 +30,11 @@ const movieSlice = createSlice({
     },
     getDetailMovies(state, action) {
       state.detailMovies = action.payload.detailMovies;
+      state.movieReview = action.payload.movieReview;
+      state.movieRecommend = action.payload.movieRecommend;
       state.loading = false;
     },
+
 
   },
 });

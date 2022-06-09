@@ -6,6 +6,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import DetailBanner from "../components/DetailBanner";
 import MovieExplain from "../components/MovieExplain";
 import Reviews from "../components/Reviews";
+import { batch } from 'react-redux'
 
 
 const MovieDetail = () => {
@@ -13,11 +14,13 @@ const MovieDetail = () => {
   const dispatch = useDispatch();
  
 
-  const { detailMovies, loading } = useSelector((state) => state.mov);
+  const { detailMovies, loading, movieReview, movieRecommend } = useSelector((state) => state.mov);
 
   useEffect(() => {
-    dispatch(movieAction.getMovieDetail(id));
-  }, [id]);
+    
+      dispatch(movieAction.getMovieDetail(id));
+    
+  }, []);
 
   if (loading) {
     return (
@@ -29,8 +32,8 @@ const MovieDetail = () => {
   return (
     <div>
       <DetailBanner/>
-      <MovieExplain item={detailMovies} loading={loading}/>
-      <Reviews/>
+      <MovieExplain item={detailMovies}/>
+      <Reviews item={movieReview} others={movieRecommend}/>
       
     </div>
   );

@@ -33,11 +33,11 @@ const MovieExplain = ({item}) => {
             <div className="badge-ex">
               <div>
                 <label className="badge">Budget</label>
-                <span>$ {item.budget}</span>
+                <span>$ {item.budget?.toLocaleString('en-US')}</span>
               </div>
               <div>
                 <label className="badge">Revenue</label>
-                <span>$ {item.revenue}</span>
+                <span>$ {item.revenue?.toLocaleString('en-US')}</span>
               </div>
               <div>
                 <label className="badge">Release Day</label>
