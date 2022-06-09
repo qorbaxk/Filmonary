@@ -1,11 +1,18 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const MovieCard = ({ item }) => {
   const { genreList } = useSelector((state) => state.mov);
+  
+  const navigate = useNavigate();
+
+  const gotoDetail=()=>{
+    navigate(`/movies/${item.id}`);
+  }
 
   return (
-    <div className="container">
+    <div className="container" onClick={gotoDetail}>
       <div className="card">
         <div className="slide slide1">
           <div

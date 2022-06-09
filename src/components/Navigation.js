@@ -14,8 +14,8 @@ const Navigation = () => {
   return (
     <Navbar id="navbar" bg="black" varient="black" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#">
-          <img width={120} src="./img/logo2.png" />
+        <Navbar.Brand href="/">
+          <img width={120} src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
