@@ -331,13 +331,45 @@
   font-weight: 500;
 }
 
+#tr-btn{
+  background-color: black;
+  border: 0;
+  border-radius: 0;
+  border-top: 3px solid #e50914;
+  border-bottom: 3px solid #e50914;
+  padding: 15px;
+  
+  margin-top: 30px;
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+}
+
+/*트레일러*/
+.modal-content{
+ background-color: black;
+}
+.modal-header{
+  border: 0;
+}
+
+.btn-close{
+  background-color: white;
+}
+.modal-body{
+  text-align: center;
+}
+
+.btn-close{
+  color: white;
+}
+
 /*리뷰창*/
 
 .rv-btn {
   margin-top: 150px;
   margin-left: 100px;
 }
-
 
 .rv-btn button {
   width: 230px;
@@ -348,12 +380,11 @@
   font-family: "GmarketSansBold";
 }
 
-.rv-btn button:focus{
+.rv-btn button:focus {
   background-color: #e50914;
 }
 
-
-.review-area {
+.under-area {
   color: white;
   border: 1px solid white;
   border-radius: 80px;
@@ -387,8 +418,18 @@
   bottom: 4;
 }
 
-
 /*추천영화*/
-.recommend-area{
+
+.recommend-area {
   color: white;
 }
+
+.re-card-area {
+  height: 350px;
+}
+
+.line {
+  border-right: 1px solid white;
+}
+
+

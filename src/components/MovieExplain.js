@@ -1,14 +1,22 @@
-import React from 'react'
+import React,{useState} from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import Trailer from "./Trailer";
 
 
-const MovieExplain = ({item}) => {
+const MovieExplain = ({ item }) => {
 
+  const [show, setShow] = useState(false);
+
+  const handleShow = () => {
   
+    setShow(true);
+  };
 
   return (
     <div>
-        <Container id="detail-area">
+      <Container id="detail-area">
         <Row>
           <Col>
             <img
@@ -17,7 +25,7 @@ const MovieExplain = ({item}) => {
             />
           </Col>
           <Col>
-          {item.genres?.map((item) => (
+            {item.genres?.map((item) => (
               <label className="badge">{item.name}</label>
             ))}
             <h1>{item.title}</h1>
@@ -33,11 +41,11 @@ const MovieExplain = ({item}) => {
             <div className="badge-ex">
               <div>
                 <label className="badge">Budget</label>
-                <span>$ {item.budget?.toLocaleString('en-US')}</span>
+                <span>$ {item.budget?.toLocaleString("en-US")}</span>
               </div>
               <div>
                 <label className="badge">Revenue</label>
-                <span>$ {item.revenue?.toLocaleString('en-US')}</span>
+                <span>$ {item.revenue?.toLocaleString("en-US")}</span>
               </div>
               <div>
                 <label className="badge">Release Day</label>
@@ -50,11 +58,15 @@ const MovieExplain = ({item}) => {
                 </span>
               </div>
             </div>
+            <div className="tr-btn">
+              <Trailer/>
+            
+            </div>
           </Col>
         </Row>
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default MovieExplain
+export default MovieExplain;
