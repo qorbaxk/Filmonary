@@ -5,7 +5,7 @@ import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import Trailer from "./Trailer";
 
 
-const MovieExplain = ({ item }) => {
+const MovieExplain = ({ item, videoId }) => {
 
   const [show, setShow] = useState(false);
 
@@ -59,7 +59,7 @@ const MovieExplain = ({ item }) => {
               </div>
             </div>
             <div className="tr-btn">
-              <Trailer/>
+              <Trailer videoId={videoId}/>
             
             </div>
           </Col>

@@ -15,7 +15,7 @@ const MovieDetail = () => {
   const [visible, setVisible] = useState(false);
   const [review, setReview] = useState(true);
 
-  const { detailMovies, loading, movieReview, movieRecommend } = useSelector(
+  const { detailMovies, loading, movieReview, movieRecommend,trailerVideo } = useSelector(
     (state) => state.mov
   );
 
@@ -31,10 +31,12 @@ const MovieDetail = () => {
     );
   }
 
+  
+
   return (
     <div>
       <DetailBanner />
-      <MovieExplain item={detailMovies} />
+      <MovieExplain item={detailMovies} videoId={trailerVideo.results} />
       <Container>
         <div className="rv-btn">
           <button

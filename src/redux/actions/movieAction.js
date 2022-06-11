@@ -73,17 +73,23 @@ function getMovieDetail(id) {
         `/movie/${id}/recommendations?api_key=${API_KEY}&language=en-US&page=1`
       )
 
-      let [detailMovies, movieReview, movieRecommend] = await Promise.all([detailMovieApi, movieReviewApi, movieRecommendApi]);
+      const trailerVideoApi = api.get(
+        `/movie/${id}/videos?api_key=${API_KEY}&language=en-US`
+      )
+
+      let [detailMovies, movieReview, movieRecommend, trailerVideo] = await Promise.all([detailMovieApi, movieReviewApi, movieRecommendApi,trailerVideoApi]);
 
       console.log("상세영화", detailMovies);
       console.log("리뷰", movieReview);
       console.log("추천영화",movieRecommend);
+      console.log("트레일러",trailerVideo);
 
       dispatch(
         movieActions.getDetailMovies({
           detailMovies: detailMovies.data,
           movieReview: movieReview.data,
-          movieRecommend : movieRecommend.data
+          movieRecommend: movieRecommend.data,
+          trailerVideo: trailerVideo.data,
         })
       );
     } catch (error) {

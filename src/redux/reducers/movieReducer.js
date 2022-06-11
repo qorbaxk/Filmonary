@@ -9,6 +9,7 @@ let initialState = {
   detailMovies: {},
   movieReview:{},
   movieRecommend:{},
+  trailerVideo:{},
 };
 
 const movieSlice = createSlice({
@@ -32,6 +33,7 @@ const movieSlice = createSlice({
       state.detailMovies = action.payload.detailMovies;
       state.movieReview = action.payload.movieReview;
       state.movieRecommend = action.payload.movieRecommend;
+      state.trailerVideo = action.payload.trailerVideo;
       state.loading = false;
     },
 
