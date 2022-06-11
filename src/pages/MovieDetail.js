@@ -36,7 +36,7 @@ const MovieDetail = () => {
   return (
     <div>
       <DetailBanner />
-      <MovieExplain item={detailMovies} videoId={trailerVideo.results} />
+      <MovieExplain item={detailMovies} videoId={trailerVideo} />
       <Container>
         <div className="rv-btn">
           <button

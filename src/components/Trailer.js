@@ -2,35 +2,37 @@ import React, { useEffect, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import YouTube from "react-youtube";
 
-const Trailer = ({ videoId }) => {
+const Trailer = ({ item }) => {
   const [show, setShow] = useState(false);
-  
-  const [trailer, setTrailer] = useState('');
-
-
-
-  const findTrailer = () =>{
-    if(videoId.includes(videoId.name == 'Official Trailer')){
-      setTrailer(videoId.find(videoId.name === 'Official Trailer').key)
-    }else{
-      setTrailer(videoId[videoId.length-1].key)
-    }
-    
-  }
-
-  useEffect(()=>{
-    findTrailer()
-  },[])
-  
-
  
 
+  const trailer = item.results?.find((item)=>{
+    if(item.name === 'Official Trailer'){
+      return item
+    }
+  })
+
+  const trailer2 = item.results?.find((item)=>{
+    if(item.type === 'Trailer'){
+      return item
+    }
+  })
+
+  console.log(trailer?.key)
+  console.log(trailer2?.key)
+
+
+
+  
+
+  
 
   const opts = {
     height: "600",
     width: "1160",
     playerVars: {
-      autoplay: 1,
+      autoplay: 0,
+      
     },
   };
 
@@ -52,13 +54,7 @@ const Trailer = ({ videoId }) => {
       >
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body>
-          <YouTube
-            videoId={
-              trailer
-            }
-            opts={opts}
-            onReady={_onReady}
-          />
+          <YouTube videoId={trailer?.key == undefined? trailer2?.key : trailer?.key} opts={opts} onReady={_onReady} />
         </Modal.Body>
       </Modal>
     </div>
