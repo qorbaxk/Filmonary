@@ -433,18 +433,15 @@
 }
 
 /*movies 페이지*/
-.sorted {
-  height: 100vh;
-}
-
 .accordion {
   margin-top: 70px;
+}
+.accordion button {
+  font-family: "GmarketSansBold";
 }
 .accordion * {
   background-color: black;
   color: white;
-  font-family: "GmarketSansBold";
-
 }
 
 .accordion *:focus {
@@ -455,7 +452,6 @@
 .accordion-button {
   border-bottom: 1px solid white;
   margin-bottom: 10px;
-  
 }
 .accordion-button:focus {
   border-color: white;
@@ -473,35 +469,91 @@
 .accordion-body {
   text-align: center;
 }
+
 #dropdown-basic {
   width: fit-content;
   margin-top: 30px;
   background-color: #e50914;
 }
-.dropdown-item:focus{
+.dropdown-item:focus {
   background-color: #e50914 !important;
 }
-
 
 /*슬라이더*/
 
-.bar *{
+.bar * {
   box-shadow: none !important;
   border: none !important;
 }
-.multi-range-slider{
+.multi-range-slider {
   border: 0 !important;
 }
-.multi-range-slider .bar-inner{
+.multi-range-slider .bar-inner {
   background-color: #e50914 !important;
   border: 4px solid #e50914 !important;
- 
 }
-.multi-range-slider .thumb::before{
+.multi-range-slider .thumb::before {
   background-color: #e50914 !important;
-  margin: -5px !important;
+  margin: -6px !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
-.active{
+.multi-range-slider .thumb * {
   background-color: #e50914 !important;
+  width: 40px !important;
+  height: 40px !important;
+  line-height: 40px !important;
+}
+
+.slider-ex span {
+  font-family: "GmarketSansBold";
+  font-size: 25px;
+}
+
+.filters {
+  margin-bottom: 30px;
+}
+
+/*movies 긴 카드 */
+.LMC {
+  width: 360px;
+  height: 500px;
+  background-size: cover;
+  background-position: 35%;
+  border-radius: 30px;
+  margin-bottom: 40px;
+  display: flex;
+}
+.LMC-info {
+  background: linear-gradient(90deg, #0d0d0c 50%, transparent);
+  padding: 30px;
+  border-radius: 25px;
+ 
+}
+.LMC-info img {
+  width: 53px;
+  height: 80px;
+}
+.LMC-info h1 {
+  font-size: 30px;
+  margin-left: 20px;
+  width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  line-height: 1.2;
+  text-align: left;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.titles {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.LMC-info label{
+
 }

@@ -1,13 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { movieAction } from "../redux/actions/movieAction";
+import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
 import Accordion from "react-bootstrap/Accordion";
 import Dropdown from "react-bootstrap/Dropdown";
+import LongMovieCard from "../components/LongMovieCard";
 import Slider from "../components/Slider";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const Movies = () => {
+  const dispatch = useDispatch();
+  const { popularMovies, loading } = useSelector((state) => state.mov);
 
+  useEffect(() => {
+    dispatch(movieAction.getMovies());
+  }, []);
 
-  const value = {min:1990, max:2022};
+  let half_length = Math.ceil(popularMovies.results?.length / 2);
+
+  let firstHalf = popularMovies.results?.slice(0).splice(0, half_length);
+  let secondHalf = popularMovies.results?.slice(0).splice(half_length);
+
+  console.log(firstHalf);
+  console.log(secondHalf);
+
+  if (loading) {
+    return (
+      <div className="spinner">
+        <ClipLoader color="red" loading={loading} size={150} />
+      </div>
+    );
+  }
 
   return (
     <div className="back sorted">
@@ -42,17 +65,35 @@ const Movies = () => {
               <Accordion.Item eventKey="1">
                 <Accordion.Header>Filter</Accordion.Header>
                 <Accordion.Body>
-                  <div>
-                    <h1>Year Filter</h1>
-                    <Slider/>
+                  <div className="filters">
+                    <h4>Year Filter</h4>
+                    <Slider min={1990} max={2022} />
                   </div>
-                  <div>IBM Score Filter</div>
-                  <div>Generes</div>
+                  <div className="filters">
+                    <h4>IBM Score Filter</h4>
+                    <Slider min={0} max={10} />
+                  </div>
+                  <div>
+                    <h4>Generes</h4>
+                  </div>
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
           </Col>
-          <Col lg={8}>우짤</Col>
+          <Col lg={8}>
+            <Row>
+              <Col lg={6}>
+                {firstHalf?.map((item) => (
+                  <LongMovieCard item={item} />
+                ))}
+              </Col>
+              <Col lg={6}>
+                {secondHalf?.map((item) => (
+                  <LongMovieCard item={item} />
+                ))}
+              </Col>
+            </Row>
+          </Col>
         </Row>
       </Container>
     </div>
