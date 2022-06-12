@@ -331,14 +331,14 @@
   font-weight: 500;
 }
 
-#tr-btn{
+#tr-btn {
   background-color: black;
   border: 0;
   border-radius: 0;
   border-top: 3px solid #e50914;
   border-bottom: 3px solid #e50914;
   padding: 15px;
-  
+
   margin-top: 30px;
   font-weight: 600;
   font-size: 14px;
@@ -346,21 +346,21 @@
 }
 
 /*트레일러*/
-.modal-content{
- background-color: rgba(0, 0, 0, 0.6);
+.modal-content {
+  background-color: rgba(0, 0, 0, 0.6);
 }
-.modal-header{
+.modal-header {
   border: 0;
 }
 
-.btn-close{
+.btn-close {
   background-color: white;
 }
-.modal-body{
+.modal-body {
   text-align: center;
 }
 
-.btn-close{
+.btn-close {
   color: white;
 }
 
@@ -432,4 +432,76 @@
   border-right: 1px solid white;
 }
 
+/*movies 페이지*/
+.sorted {
+  height: 100vh;
+}
 
+.accordion {
+  margin-top: 70px;
+}
+.accordion * {
+  background-color: black;
+  color: white;
+  font-family: "GmarketSansBold";
+
+}
+
+.accordion *:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.accordion-button {
+  border-bottom: 1px solid white;
+  margin-bottom: 10px;
+  
+}
+.accordion-button:focus {
+  border-color: white;
+}
+.accordion-button:not(.collapsed) {
+  background-color: black;
+  color: #e50914;
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url(data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27%23212529%27%3e%3cpath fill-rule=%27evenodd%27 d=%27M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z%27/%3e%3c/svg%3e);
+  transform: rotate(-180deg);
+}
+
+.accordion-body {
+  text-align: center;
+}
+#dropdown-basic {
+  width: fit-content;
+  margin-top: 30px;
+  background-color: #e50914;
+}
+.dropdown-item:focus{
+  background-color: #e50914 !important;
+}
+
+
+/*슬라이더*/
+
+.bar *{
+  box-shadow: none !important;
+  border: none !important;
+}
+.multi-range-slider{
+  border: 0 !important;
+}
+.multi-range-slider .bar-inner{
+  background-color: #e50914 !important;
+  border: 4px solid #e50914 !important;
+ 
+}
+.multi-range-slider .thumb::before{
+  background-color: #e50914 !important;
+  margin: -5px !important;
+}
+
+.active{
+  background-color: #e50914 !important;
+}
