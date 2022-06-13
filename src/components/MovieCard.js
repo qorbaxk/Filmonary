@@ -1,15 +1,17 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
 
 const MovieCard = ({ item }) => {
   const { genreList } = useSelector((state) => state.mov);
-  
+
   const navigate = useNavigate();
 
   const gotoDetail=()=>{
     navigate(`/movies/${item.id}`);
   }
+
 
   return (
     <div className="container" onClick={gotoDetail}>
@@ -20,7 +22,7 @@ const MovieCard = ({ item }) => {
             style={{
               backgroundImage:
                 "url(" +
-                `https://www.themoviedb.org/t/p/w355_and_h200_multi_faces${item.backdrop_path}` +
+                `https://image.tmdb.org/t/p/original//${item.backdrop_path}` +
                 ")",
             }}
           ></div>
