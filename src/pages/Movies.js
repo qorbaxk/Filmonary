@@ -4,31 +4,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
 import Accordion from "react-bootstrap/Accordion";
 import Dropdown from "react-bootstrap/Dropdown";
-import LongMovieCard from "../components/LongMovieCard";
 import Slider from "../components/Slider";
 import ClipLoader from "react-spinners/ClipLoader";
 import NavPage from "../components/NavPage";
 
-
 const Movies = () => {
- 
   const dispatch = useDispatch();
   const { popularMovies, loading, genreList } = useSelector(
     (state) => state.mov
   );
 
+  console.log("장르", genreList);
+
   useEffect(() => {
     dispatch(movieAction.getMovies());
   }, []);
-
-  let half_length = Math.ceil(popularMovies.results?.length / 2);
-
-  let firstHalf = popularMovies.results?.slice(0).splice(0, half_length);
-  let secondHalf = popularMovies.results?.slice(0).splice(half_length);
-
-  console.log(firstHalf);
-  console.log(secondHalf);
-  console.log("장르", genreList);
 
   if (loading) {
     return (
@@ -90,22 +80,9 @@ const Movies = () => {
             </Accordion>
           </Col>
           <Col lg={8}>
-            <Row>
-              <Col lg={6}>
-                {firstHalf?.map((item) => (
-                  <LongMovieCard item={item} />
-                ))}
-              </Col>
-              <Col lg={6}>
-                {secondHalf?.map((item) => (
-                  <LongMovieCard item={item} />
-                ))}
-              </Col>
-            </Row>
             <NavPage />
           </Col>
         </Row>
-        
       </Container>
     </div>
   );

@@ -4,13 +4,13 @@ import { movieActions } from "../reducers/movieReducer";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 //영화 데이터 가져오기
-function getMovies() {
+function getMovies(page) {
   return async (dispatch) => {
     try {
       dispatch(movieActions.getMoviesRequest());
       //동시에 api 여러개 호출하는 법
       const popularMovieApi = api.get(
-        `/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
+        `/movie/popular?api_key=${API_KEY}&language=en-US&page=${page?page:1}`
       );
 
       const topRatedApi = api.get(
