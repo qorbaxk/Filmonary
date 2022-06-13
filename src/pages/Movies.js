@@ -10,7 +10,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 
 const Movies = () => {
   const dispatch = useDispatch();
-  const { popularMovies, loading } = useSelector((state) => state.mov);
+  const { popularMovies, loading, genreList } = useSelector((state) => state.mov);
 
   useEffect(() => {
     dispatch(movieAction.getMovies());
@@ -23,6 +23,7 @@ const Movies = () => {
 
   console.log(firstHalf);
   console.log(secondHalf);
+  console.log("장르",genreList);
 
   if (loading) {
     return (
@@ -70,11 +71,16 @@ const Movies = () => {
                     <Slider min={1990} max={2022} />
                   </div>
                   <div className="filters">
-                    <h4>IBM Score Filter</h4>
+                    <h4>Star Rating Filter</h4>
                     <Slider min={0} max={10} />
                   </div>
                   <div>
                     <h4>Generes</h4>
+                    {genreList?.map((item)=>(
+                      <button className="genre-btn color-6">
+                        {item.name}
+                      </button>
+                    ))}
                   </div>
                 </Accordion.Body>
               </Accordion.Item>

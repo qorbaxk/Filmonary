@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import moment from "moment";
 
 const LongMovieCard = ({ item }) => {
   const { genreList } = useSelector((state) => state.mov);
@@ -28,14 +29,24 @@ const LongMovieCard = ({ item }) => {
           />
           <h1>{item.title}</h1>
         </div>
+        <div className="date">{moment(item.release_date).format('LL')}</div>
 
         {item.genre_ids?.map((id) => (
-          <div>{genreList.find((item) => item.id == id)?.name}ㅤ</div>
+          <label className="LMC-badge">
+            {genreList.find((item) => item.id == id)?.name}
+          </label>
         ))}
 
-        <div className="star">⭐ {item.vote_average}</div>
-        <div className={item.adult ? "r-red" : "r-green"}>
-          {item.adult ? "R-rated" : "G-rated"}
+        <div className="explains">
+            {item.overview}
+        </div>
+
+        <div className="LMC-count">
+          <div >⭐ {item.vote_average}</div>
+          <div>👥 {item.popularity}</div>
+          <div className={item.adult ? "r-red" : "r-green"}>
+            {item.adult ? "R-rated" : "G-rated"}
+          </div>
         </div>
       </div>
     </div>

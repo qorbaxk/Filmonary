@@ -520,7 +520,8 @@
   width: 360px;
   height: 500px;
   background-size: cover;
-  background-position: 35%;
+  background-repeat: no-repeat;
+  background-position: 30%;
   border-radius: 30px;
   margin-bottom: 40px;
   display: flex;
@@ -529,7 +530,7 @@
   background: linear-gradient(90deg, #0d0d0c 50%, transparent);
   padding: 30px;
   border-radius: 25px;
- 
+  position: relative;
 }
 .LMC-info img {
   width: 53px;
@@ -553,7 +554,91 @@
   display: flex;
   margin-bottom: 20px;
 }
+.date {
+  font-size: 12px;
+  margin-bottom: 10px;
+  color: #9ac7fa;
+}
 
-.LMC-info label{
+.LMC-badge {
+  border: 1px solid #fb4f15;
+  background-color: #fb4f15;
+  color: white;
+  border-radius: 10px;
+  width: fit-content;
+  text-align: center;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  padding: 5px;
+}
 
+.explains {
+  font-size: 13px;
+  width: 180px;
+  height: 45%;
+  overflow: hidden;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: rgb(170, 170, 170);
+
+  text-overflow: ellipsis;
+  white-space: normal;
+  line-height: 1.7;
+  text-align: left;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 9;
+  -webkit-box-orient: vertical;
+}
+
+.LMC-count {
+  position: absolute;
+  bottom: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.LMC-count * {
+  margin-right: 10px;
+}
+
+/*장르 뱃지*/
+.genre-btn {
+  color: #000;
+  cursor: pointer;
+  margin: 10px;
+  height: 55px;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 10px;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.genre-btn:hover {
+  background-position: 100% 0;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.genre-btn:focus {
+  color: #fff;
+  outline: none;
+}
+.genre-btn.color-6 {
+  background-image: linear-gradient(
+    to right,
+    #e50914,
+    #f79533,
+    rgb(33, 2, 2),
+    #e50914
+  );
+  box-shadow: 0 4px 15px 0 rgba(229, 53, 53, 0.75);
 }
