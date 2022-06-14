@@ -5,7 +5,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import Accordion from "react-bootstrap/Accordion";
 import Slider from "../components/Slider";
 import ClipLoader from "react-spinners/ClipLoader";
-import FilterSort from "../components/FilterSort";
 import SearchPage from "../components/SearchPage";
 import Pagination from "react-js-pagination";
 import Dropdown from "react-bootstrap/Dropdown";
