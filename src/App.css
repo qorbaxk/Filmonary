@@ -30,6 +30,8 @@
   background-color: black;
   color: white;
   height: fit-content;
+  min-height: 100vh;
+
 }
 .main {
   overflow: hidden;
@@ -654,6 +656,7 @@
   margin: 10px;
   padding: 10px;
   border-radius: 50%;
+  text-align: center;
 }
 
 

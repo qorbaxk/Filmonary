@@ -19,7 +19,7 @@ const Navigation = () => {
 
   const gotoSearch = (event) => {
     event.preventDefault();
-    if(keyword==""){
+    if(keyword=="" || keyword=="undefined"){
       console.log("검색어 없음");
       dispatch(movieAction.getMovies(undefined,1))
       navigate(`/movies`);

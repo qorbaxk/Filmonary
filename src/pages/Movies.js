@@ -31,7 +31,7 @@ const Movies = () => {
   }
 
   return (
-    <div className="back sorted">
+    <div className="back">
       <Container>
         <Row>
           <Col lg={4}>

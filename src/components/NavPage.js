@@ -12,14 +12,14 @@ const NavPage = ({ popularMovies, searchMovies }) => {
   let firstHalf = {};
   let secondHalf = {};
 
-  if (searchMovies.results.length > 2) {
-    half_length = Math.ceil(searchMovies.results?.length / 2);
-    firstHalf = searchMovies.results?.slice(0).splice(0, half_length);
-    secondHalf = searchMovies.results?.slice(0).splice(half_length);
-  } else {
+  if(searchMovies.results[0].title == "UNdefined"){
     half_length = Math.ceil(popularMovies.results?.length / 2);
     firstHalf = popularMovies.results?.slice(0).splice(0, half_length);
     secondHalf = popularMovies.results?.slice(0).splice(half_length);
+  }else if (searchMovies !== null) {
+    half_length = Math.ceil(searchMovies.results?.length / 2);
+    firstHalf = searchMovies.results?.slice(0).splice(0, half_length);
+    secondHalf = searchMovies.results?.slice(0).splice(half_length);
   }
 
   //페이지네이션
