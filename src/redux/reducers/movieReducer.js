@@ -11,6 +11,7 @@ let initialState = {
   movieRecommend:{},
   trailerVideo:{},
   searchMovies:{},
+  sortMovies:{},
 };
 
 const movieSlice = createSlice({
@@ -24,6 +25,7 @@ const movieSlice = createSlice({
       state.loading = false;
       state.genreList = action.payload.genreList;
       state.searchMovies = action.payload.searchMovies;
+      state.sortMovies = action.payload.sortMovies;
     },
     getMoviesRequest(state, action) {
       state.loading = true;
@@ -38,7 +40,6 @@ const movieSlice = createSlice({
       state.trailerVideo = action.payload.trailerVideo;
       state.loading = false;
     },
-
   },
 });
 

@@ -597,14 +597,27 @@
 }
 
 /*페이지 네이션*/
+.pagination{
+ justify-content: center;
+}
+.pagination li{
+  margin: 10px;
+  padding-left:20px;
+  padding-right:20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  align-items: center;
+}
 .pagination a{
   text-decoration: none;
   color: white;
-  background-color: #e50914;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 50%;
-  text-align: center;
+}
+
+.pagination .active{
+  background-color: #f79533;
+  border-radius: 30%;
+
 }
 
 

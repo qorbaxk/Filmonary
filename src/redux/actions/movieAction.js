@@ -4,7 +4,7 @@ import { movieActions } from "../reducers/movieReducer";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 //영화 데이터 가져오기
-function getMovies(keyword, page) {
+function getMovies(keyword, page, sortResult) {
   return async (dispatch) => {
     try {
       dispatch(movieActions.getMoviesRequest());
@@ -14,11 +14,11 @@ function getMovies(keyword, page) {
       );
 
       const topRatedApi = api.get(
-        `/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`
+        `/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`
       );
 
       const upComingApi = api.get(
-        `/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`
+        `/movie/upcoming?api_key=${API_KEY}&language=en-US&page=${page}`
       );
 
       const genreApi = api.get(
@@ -26,25 +26,26 @@ function getMovies(keyword, page) {
       );
 
       const searchMovieApi = api.get(
-        `/search/movie?api_key=${API_KEY}&language=en-US&query=${keyword}&page=1&include_adult=false`
+        `/search/movie?api_key=${API_KEY}&language=en-US&query=${keyword}&page=${page}&include_adult=false`
       );
+
+      const sortMovieApi = api.get(
+        `/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=${sortResult?sortResult:"popularity.desc"}&include_adult=true&include_video=false&page=${page}`
+      )
 
       //3개의 데이터가 다 올때까지 기다림
       //하나하나 await 할 필요없이 이렇게 쓰면됨
-      let [popularMovies, topRatedMovies, upComingMovies, genreList,searchMovies] =
+      let [popularMovies, topRatedMovies, upComingMovies, genreList,searchMovies,sortMovies] =
         await Promise.all([
           popularMovieApi,
           topRatedApi,
           upComingApi,
           genreApi,
           searchMovieApi,
+          sortMovieApi
         ]);
 
-      console.log("인기영화", popularMovies);
-      console.log("평점상위영화", topRatedMovies);
-      console.log("개봉예정영화", upComingMovies);
-      console.log("장르", genreList);
-      console.log("검색한거 잘 들어왔냐?",searchMovies);
+
 
       dispatch(
         movieActions.getMainMovies({
@@ -53,6 +54,7 @@ function getMovies(keyword, page) {
           upComingMovies: upComingMovies.data,
           genreList: genreList.data.genres,
           searchMovies: searchMovies.data,
+          sortMovies: sortMovies.data,
         })
       );
     } catch (error) {
@@ -92,11 +94,7 @@ function getMovieDetail(id) {
           trailerVideoApi,
         ]);
 
-      console.log("상세영화", detailMovies);
-      console.log("리뷰", movieReview);
-      console.log("추천영화", movieRecommend);
-      console.log("트레일러", trailerVideo);
-
+     
       dispatch(
         movieActions.getDetailMovies({
           detailMovies: detailMovies.data,

@@ -1,26 +1,41 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { movieAction } from "../redux/actions/movieAction";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
 import Accordion from "react-bootstrap/Accordion";
 import Slider from "../components/Slider";
 import ClipLoader from "react-spinners/ClipLoader";
-import NavPage from "../components/NavPage";
-
 import FilterSort from "../components/FilterSort";
+import SearchPage from "../components/SearchPage";
+import Pagination from "react-js-pagination";
+import Dropdown from "react-bootstrap/Dropdown";
 
 const Movies = () => {
+  const [page, setPage] = useState(1);
+  const [sortTitle, setSortTitle] = useState("");
+
   const dispatch = useDispatch();
-  const { loading, genreList, searchMovies, popularMovies } = useSelector(
+  const { loading, genreList, searchMovies, sortMovies } = useSelector(
     (state) => state.mov
   );
 
-  console.log("검색됐나요?", searchMovies);
-  console.log("장르", genreList);
-
   useEffect(() => {
-    dispatch(movieAction.getMovies());
-  }, []);
+    dispatch(movieAction.getMovies(undefined, page, sortTitle));
+  }, [page,sortTitle]);
+
+  //페이지네이션
+  const handlePageChange = (page) => {
+    setPage(page);
+    console.log("내가 찍은 페이지", page);
+    
+  };
+
+  //소트
+  const handleSelect = (eventKey) => {
+    console.log("선택했다", eventKey);
+    setSortTitle(eventKey);
+    setPage(1);
+  };
 
   if (loading) {
     return (
@@ -40,7 +55,41 @@ const Movies = () => {
                 <Accordion.Header>Sort</Accordion.Header>
                 <Accordion.Body>
                   <div>Sort Results By</div>
-                  <FilterSort item={popularMovies}/>
+                  <Dropdown onSelect={handleSelect}>
+                    <Dropdown.Toggle variant="dark" id="dropdown-basic">
+                      {sortTitle}
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      <Dropdown.Item eventKey="popularity.desc">
+                        None
+                      </Dropdown.Item>
+                      <Dropdown.Item eventKey="popularity.desc">
+                        Popularity(Desc)
+                      </Dropdown.Item>
+                      <Dropdown.Item eventKey="popularity.asc">
+                        Popularity(Asc)
+                      </Dropdown.Item>
+                      <Dropdown.Item eventKey="release_date.desc">
+                        Release Day(Desc)
+                      </Dropdown.Item>
+                      <Dropdown.Item eventKey="release_date.asc">
+                        Release Day(Asc)
+                      </Dropdown.Item>
+                      <Dropdown.Item eventKey="vote_average.desc">
+                        Vote(Desc)
+                      </Dropdown.Item>
+                      <Dropdown.Item eventKey="vote_average.asc">
+                        Vote(Asc)
+                      </Dropdown.Item>
+                      <Dropdown.Item eventKey="revenue.desc">
+                        Revenue(Desc)
+                      </Dropdown.Item>
+                      <Dropdown.Item eventKey="revenue.asc">
+                        Revenue(Asc)
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
                 </Accordion.Body>
               </Accordion.Item>
 
@@ -66,12 +115,17 @@ const Movies = () => {
             </Accordion>
           </Col>
           <Col lg={8}>
-            <NavPage
-              popularMovies={popularMovies}
-              searchMovies={searchMovies}
-            />
+            <SearchPage searchMovies={searchMovies} sortMovies={sortMovies} />
           </Col>
         </Row>
+        <Pagination
+          activePage={page}
+          hideDisabled={true}
+          itemsCountPerPage={20}
+          totalItemsCount={450}
+          pageRangeDisplayed={5}
+          onChange={handlePageChange}
+        />
       </Container>
     </div>
   );
