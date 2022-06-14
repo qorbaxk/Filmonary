@@ -8,18 +8,15 @@ import Pagination from "react-js-pagination";
 const NavPage = ({ popularMovies, searchMovies }) => {
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
-  let half_length = 0;
   let firstHalf = {};
   let secondHalf = {};
 
   if(searchMovies.results[0].title == "UNdefined"){
-    half_length = Math.ceil(popularMovies.results?.length / 2);
-    firstHalf = popularMovies.results?.slice(0).splice(0, half_length);
-    secondHalf = popularMovies.results?.slice(0).splice(half_length);
+    firstHalf = popularMovies.results?.slice(0).filter((_,i)=>i%2===0); //짝수인덱스만 추출
+    secondHalf = popularMovies.results?.slice(0).filter((_,i)=>i%2===1); //홀수인덱스만 추출
   }else if (searchMovies !== null) {
-    half_length = Math.ceil(searchMovies.results?.length / 2);
-    firstHalf = searchMovies.results?.slice(0).splice(0, half_length);
-    secondHalf = searchMovies.results?.slice(0).splice(half_length);
+    firstHalf = searchMovies.results?.slice(0).filter((_,i)=>i%2===0);
+    secondHalf = searchMovies.results?.slice(0).filter((_,i)=>i%2===1);
   }
 
   //페이지네이션
