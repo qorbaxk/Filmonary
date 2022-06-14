@@ -3,19 +3,19 @@ import { movieAction } from "../redux/actions/movieAction";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
 import Accordion from "react-bootstrap/Accordion";
-import Dropdown from "react-bootstrap/Dropdown";
 import Slider from "../components/Slider";
 import ClipLoader from "react-spinners/ClipLoader";
 import NavPage from "../components/NavPage";
 
-const Movies = () => {
+import FilterSort from "../components/FilterSort";
 
+const Movies = () => {
   const dispatch = useDispatch();
   const { loading, genreList, searchMovies, popularMovies } = useSelector(
     (state) => state.mov
   );
 
-  console.log("검색됐나요?",searchMovies);
+  console.log("검색됐나요?", searchMovies);
   console.log("장르", genreList);
 
   useEffect(() => {
@@ -40,23 +40,7 @@ const Movies = () => {
                 <Accordion.Header>Sort</Accordion.Header>
                 <Accordion.Body>
                   <div>Sort Results By</div>
-                  <Dropdown>
-                    <Dropdown.Toggle variant="dark" id="dropdown-basic">
-                      ?
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu>
-                      <Dropdown.Item>None</Dropdown.Item>
-                      <Dropdown.Item>Popularity⬇</Dropdown.Item>
-                      <Dropdown.Item>Popularity⬆</Dropdown.Item>
-                      <Dropdown.Item>Release Day⬇</Dropdown.Item>
-                      <Dropdown.Item>Release Day⬆</Dropdown.Item>
-                      <Dropdown.Item>Vote⬇</Dropdown.Item>
-                      <Dropdown.Item>Vote⬆</Dropdown.Item>
-                      <Dropdown.Item>Revenue⬇</Dropdown.Item>
-                      <Dropdown.Item>Revenue⬆</Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
+                  <FilterSort item={popularMovies}/>
                 </Accordion.Body>
               </Accordion.Item>
 
@@ -82,7 +66,10 @@ const Movies = () => {
             </Accordion>
           </Col>
           <Col lg={8}>
-            <NavPage popularMovies={popularMovies} searchMovies={searchMovies} />
+            <NavPage
+              popularMovies={popularMovies}
+              searchMovies={searchMovies}
+            />
           </Col>
         </Row>
       </Container>

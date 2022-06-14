@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { movieAction } from "../redux/actions/movieAction";
 import ClipLoader from "react-spinners/ClipLoader";
-import DetailBanner from "../components/DetailBanner";
 import MovieExplain from "../components/MovieExplain";
 import Reviews from "../components/Reviews";
 import { Container } from "react-bootstrap";
@@ -21,7 +20,9 @@ const MovieDetail = () => {
 
   useEffect(() => {
     dispatch(movieAction.getMovieDetail(id));
-  }, []);
+    window.scrollTo(0, 0)
+
+  }, [id]);
 
   if (loading) {
     return (
@@ -35,7 +36,6 @@ const MovieDetail = () => {
 
   return (
     <div>
-      <DetailBanner />
       <MovieExplain item={detailMovies} videoId={trailerVideo} />
       <Container>
         <div className="rv-btn">
