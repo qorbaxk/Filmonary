@@ -8,8 +8,12 @@ import ClipLoader from "react-spinners/ClipLoader";
 import SearchPage from "../components/SearchPage";
 import Pagination from "react-js-pagination";
 import Dropdown from "react-bootstrap/Dropdown";
+import { useSearchParams } from "react-router-dom";
 
 const Movies = () => {
+  // const [query, setQuery] = useSearchParams();
+  // let keyword = query.get('query');
+  // console.log("쿼리는?",keyword);
   const [page, setPage] = useState(1);
   const [sortTitle, setSortTitle] = useState("");
 
@@ -20,6 +24,7 @@ const Movies = () => {
 
   useEffect(() => {
     dispatch(movieAction.getMovies(undefined, page, sortTitle));
+    window.scrollTo(0, 0)
   }, [page,sortTitle]);
 
   //페이지네이션
@@ -61,31 +66,28 @@ const Movies = () => {
 
                     <Dropdown.Menu>
                       <Dropdown.Item eventKey="popularity.desc">
-                        None
-                      </Dropdown.Item>
-                      <Dropdown.Item eventKey="popularity.desc">
-                        Popularity(Desc)
+                        Popularity.desc
                       </Dropdown.Item>
                       <Dropdown.Item eventKey="popularity.asc">
-                        Popularity(Asc)
+                        Popularity.asc
                       </Dropdown.Item>
                       <Dropdown.Item eventKey="release_date.desc">
-                        Release Day(Desc)
+                        Release Day.desc
                       </Dropdown.Item>
                       <Dropdown.Item eventKey="release_date.asc">
-                        Release Day(Asc)
+                        Release Day.asc
                       </Dropdown.Item>
                       <Dropdown.Item eventKey="vote_average.desc">
-                        Vote(Desc)
+                        Vote.desc
                       </Dropdown.Item>
                       <Dropdown.Item eventKey="vote_average.asc">
-                        Vote(Asc)
+                        Vote.asc
                       </Dropdown.Item>
                       <Dropdown.Item eventKey="revenue.desc">
-                        Revenue(Desc)
+                        Revenue.desc
                       </Dropdown.Item>
                       <Dropdown.Item eventKey="revenue.asc">
-                        Revenue(Asc)
+                        Revenue.asc
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
@@ -121,7 +123,7 @@ const Movies = () => {
           activePage={page}
           hideDisabled={true}
           itemsCountPerPage={20}
-          totalItemsCount={450}
+          totalItemsCount={10000}
           pageRangeDisplayed={5}
           onChange={handlePageChange}
         />
