@@ -9,11 +9,13 @@ import ClipLoader from "react-spinners/ClipLoader";
 import NavPage from "../components/NavPage";
 
 const Movies = () => {
+
   const dispatch = useDispatch();
-  const { popularMovies, loading, genreList } = useSelector(
+  const { loading, genreList, searchMovies, popularMovies } = useSelector(
     (state) => state.mov
   );
 
+  console.log("검색됐나요?",searchMovies);
   console.log("장르", genreList);
 
   useEffect(() => {
@@ -80,7 +82,7 @@ const Movies = () => {
             </Accordion>
           </Col>
           <Col lg={8}>
-            <NavPage />
+            <NavPage popularMovies={popularMovies} searchMovies={searchMovies} />
           </Col>
         </Row>
       </Container>

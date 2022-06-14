@@ -4,13 +4,13 @@ import { movieActions } from "../reducers/movieReducer";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 //영화 데이터 가져오기
-function getMovies(page) {
+function getMovies(keyword, page) {
   return async (dispatch) => {
     try {
       dispatch(movieActions.getMoviesRequest());
       //동시에 api 여러개 호출하는 법
       const popularMovieApi = api.get(
-        `/movie/popular?api_key=${API_KEY}&language=en-US&page=${page?page:1}`
+        `/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`
       );
 
       const topRatedApi = api.get(
@@ -25,20 +25,26 @@ function getMovies(page) {
         `/genre/movie/list?api_key=${API_KEY}&language=en-US`
       );
 
+      const searchMovieApi = api.get(
+        `/search/movie?api_key=${API_KEY}&language=en-US&query=${keyword}&page=1&include_adult=false`
+      );
+
       //3개의 데이터가 다 올때까지 기다림
       //하나하나 await 할 필요없이 이렇게 쓰면됨
-      let [popularMovies, topRatedMovies, upComingMovies, genreList] =
+      let [popularMovies, topRatedMovies, upComingMovies, genreList,searchMovies] =
         await Promise.all([
           popularMovieApi,
           topRatedApi,
           upComingApi,
           genreApi,
+          searchMovieApi,
         ]);
 
       console.log("인기영화", popularMovies);
       console.log("평점상위영화", topRatedMovies);
       console.log("개봉예정영화", upComingMovies);
       console.log("장르", genreList);
+      console.log("검색한거 잘 들어왔냐?",searchMovies);
 
       dispatch(
         movieActions.getMainMovies({
@@ -46,6 +52,7 @@ function getMovies(page) {
           topRatedMovies: topRatedMovies.data,
           upComingMovies: upComingMovies.data,
           genreList: genreList.data.genres,
+          searchMovies: searchMovies.data,
         })
       );
     } catch (error) {
@@ -68,21 +75,27 @@ function getMovieDetail(id) {
       const movieReviewApi = api.get(
         `/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`
       );
-      
+
       const movieRecommendApi = api.get(
         `/movie/${id}/recommendations?api_key=${API_KEY}&language=en-US&page=1`
-      )
+      );
 
       const trailerVideoApi = api.get(
         `/movie/${id}/videos?api_key=${API_KEY}&language=en-US`
-      )
+      );
 
-      let [detailMovies, movieReview, movieRecommend, trailerVideo] = await Promise.all([detailMovieApi, movieReviewApi, movieRecommendApi,trailerVideoApi]);
+      let [detailMovies, movieReview, movieRecommend, trailerVideo] =
+        await Promise.all([
+          detailMovieApi,
+          movieReviewApi,
+          movieRecommendApi,
+          trailerVideoApi,
+        ]);
 
       console.log("상세영화", detailMovies);
       console.log("리뷰", movieReview);
-      console.log("추천영화",movieRecommend);
-      console.log("트레일러",trailerVideo);
+      console.log("추천영화", movieRecommend);
+      console.log("트레일러", trailerVideo);
 
       dispatch(
         movieActions.getDetailMovies({
@@ -99,4 +112,5 @@ function getMovieDetail(id) {
   };
 }
 
-export const movieAction = { getMovies, getMovieDetail,  };
+
+export const movieAction = { getMovies, getMovieDetail };

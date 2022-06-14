@@ -33,7 +33,7 @@ const LongMovieCard = ({ item }) => {
 
         {item.genre_ids?.map((id) => (
           <label className="LMC-badge">
-            {genreList.find((item) => item.id == id)?.name}
+            {genreList?.find((item) => item.id == id)?.name}
           </label>
         ))}
 
