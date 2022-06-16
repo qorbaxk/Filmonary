@@ -3,13 +3,15 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import MovieCard from "./MovieCard";
 
+//Home페이지의 카드슬라이드
+
 const responsive = {
   superLargeDesktop: {
-    // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
     items: 5,
   },
   desktop: {
+    //데스크탑 기준 4개씩 보이도록 함
     breakpoint: { max: 3000, min: 1024 },
     items: 4,
   },

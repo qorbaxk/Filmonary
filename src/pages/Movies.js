@@ -8,37 +8,39 @@ import ClipLoader from "react-spinners/ClipLoader";
 import SearchPage from "../components/SearchPage";
 import Pagination from "react-js-pagination";
 import Dropdown from "react-bootstrap/Dropdown";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
 const Movies = () => {
-  // const [query, setQuery] = useSearchParams();
-  // let keyword = query.get('query');
-  // console.log("쿼리는?",keyword);
+  const [query, setQuery] = useSearchParams();
+  let keyword = query.get("query");
   const [page, setPage] = useState(1);
   const [sortTitle, setSortTitle] = useState("");
-
+  const [genreName, setGenreName] = useState("");
   const dispatch = useDispatch();
-  const { loading, genreList, searchMovies, sortMovies } = useSelector(
-    (state) => state.mov
-  );
+  const navigate = useNavigate();
+  const { loading, genreList, searchMovies, sortMovies, minValue, maxValue } =
+    useSelector((state) => state.mov);
 
   useEffect(() => {
     dispatch(movieAction.getMovies(undefined, page, sortTitle));
-    window.scrollTo(0, 0)
-  }, [page,sortTitle]);
+    window.scrollTo(0, 0);
+  }, [page, sortTitle]);
 
   //페이지네이션
   const handlePageChange = (page) => {
     setPage(page);
-    console.log("내가 찍은 페이지", page);
-    
   };
 
-  //소트
+  //정렬선택
   const handleSelect = (eventKey) => {
-    console.log("선택했다", eventKey);
     setSortTitle(eventKey);
     setPage(1);
+    navigate(`/movies`);
+  };
+
+  //장르선택
+  const handleGenre = (e) => {
+    setGenreName(e.target.value);
   };
 
   if (loading) {
@@ -101,14 +103,16 @@ const Movies = () => {
                     <h4>Years</h4>
                     <Slider min={1990} max={2022} />
                   </div>
-                  <div className="filters">
-                    <h4>Star Rating</h4>
-                    <Slider min={0} max={10} />
-                  </div>
                   <div>
                     <h4>Generes</h4>
                     {genreList?.map((item) => (
-                      <button className="genre-btn color-6">{item.name}</button>
+                      <button
+                        onClick={handleGenre}
+                        value={item.name}
+                        className="genre-btn color-6"
+                      >
+                        {item.name}
+                      </button>
                     ))}
                   </div>
                 </Accordion.Body>
@@ -116,17 +120,27 @@ const Movies = () => {
             </Accordion>
           </Col>
           <Col lg={8}>
-            <SearchPage searchMovies={searchMovies} sortMovies={sortMovies} />
+            <SearchPage
+              searchMovies={searchMovies}
+              sortMovies={sortMovies}
+              minValue={minValue}
+              maxValue={maxValue}
+              genreName={genreName}
+              genreList={genreList}
+              keyword={keyword}
+            />
           </Col>
         </Row>
-        <Pagination
-          activePage={page}
-          hideDisabled={true}
-          itemsCountPerPage={20}
-          totalItemsCount={10000}
-          pageRangeDisplayed={5}
-          onChange={handlePageChange}
-        />
+        {keyword ? null : (
+          <Pagination
+            activePage={page}
+            hideDisabled={true}
+            itemsCountPerPage={20}
+            totalItemsCount={10000}
+            pageRangeDisplayed={5}
+            onChange={handlePageChange}
+          />
+        )}
       </Container>
     </div>
   );

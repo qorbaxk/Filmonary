@@ -1,17 +1,17 @@
 import React from "react";
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+//Home페이지에서 쓰이는 작은 영화카드
 
 const MovieCard = ({ item }) => {
   const { genreList } = useSelector((state) => state.mov);
-
   const navigate = useNavigate();
 
-  const gotoDetail=()=>{
+  //카드 클릭시 디테일페이지로 전환
+  const gotoDetail = () => {
     navigate(`/movies/${item.id}`);
-  }
-
+  };
 
   return (
     <div className="container" onClick={gotoDetail}>

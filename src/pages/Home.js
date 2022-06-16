@@ -37,7 +37,6 @@ const Home = () => {
         <MovieSlide movies={topRatedMovies} />
         <h1>Upcoming Movie</h1>
         <MovieSlide movies={upComingMovies} />
-  
       </div>
     </div>
   );

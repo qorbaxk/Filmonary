@@ -1,19 +1,12 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import Trailer from "./Trailer";
 
+//디테일페이지의 영화 설명란
 
 const MovieExplain = ({ item, videoId }) => {
-
-  const [show, setShow] = useState(false);
-
-  const handleShow = () => {
-  
-    setShow(true);
-  };
-
   return (
     <div>
       <Container id="detail-area">
@@ -59,8 +52,7 @@ const MovieExplain = ({ item, videoId }) => {
               </div>
             </div>
             <div className="tr-btn">
-              <Trailer item={videoId}/>
-            
+              <Trailer item={videoId} />
             </div>
           </Col>
         </Row>

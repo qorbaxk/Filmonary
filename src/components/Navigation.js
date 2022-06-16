@@ -5,29 +5,35 @@ import {
   Form,
   Button,
   Nav,
-  NavDropdown,
   FormControl,
 } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { movieAction } from "../redux/actions/movieAction";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
+// 맨위에 있는 메뉴와 검색창
 
 const Navigation = () => {
   const [keyword, setKeyword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  //검색
   const gotoSearch = (event) => {
     event.preventDefault();
-    if(keyword=="" || keyword=="undefined"){
-      console.log("검색어 없음");
-      dispatch(movieAction.getMovies(undefined,1))
+
+    if (keyword == "" || keyword == "undefined" ) {
+      //검색어 없을 때
+      dispatch(movieAction.getMovies(undefined, 1));
       navigate(`/movies`);
-    }else{
-      dispatch(movieAction.getMovies(keyword,1));
+    } else {
+      //검색어 있을 때
+      dispatch(movieAction.getMovies(keyword, 1));
       navigate(`/movies?query=${keyword}`);
+     
     }
-    
   };
 
   return (
@@ -53,15 +59,17 @@ const Navigation = () => {
               Movies
             </Link>
           </Nav>
-          <Form className="d-flex" onSubmit={gotoSearch}>
+          <Form className="d-flex search-area" onSubmit={gotoSearch}>
             <FormControl
               type="search"
               placeholder="Search"
-              className="me-2 search-area"
+              className="me-2 search-input"
               aria-label="Search"
               onChange={(event) => setKeyword(event.target.value)}
             />
-            <Button type="submit">s</Button>
+            <Button type="submit">
+              <FontAwesomeIcon icon={faSearch} className="search-icon" />
+            </Button>
           </Form>
         </Navbar.Collapse>
       </Container>

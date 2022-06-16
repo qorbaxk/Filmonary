@@ -7,11 +7,13 @@ let initialState = {
   loading: true,
   genreList: [],
   detailMovies: {},
-  movieReview:{},
-  movieRecommend:{},
-  trailerVideo:{},
-  searchMovies:{},
-  sortMovies:{},
+  movieReview: {},
+  movieRecommend: {},
+  trailerVideo: {},
+  searchMovies: {},
+  sortMovies: {},
+  minValue: 0,
+  maxValue: 0,
 };
 
 const movieSlice = createSlice({
@@ -39,6 +41,10 @@ const movieSlice = createSlice({
       state.movieRecommend = action.payload.movieRecommend;
       state.trailerVideo = action.payload.trailerVideo;
       state.loading = false;
+    },
+    getFiltering(state, action) {
+      state.minValue = action.payload.minValue;
+      state.maxValue = action.payload.maxValue;
     },
   },
 });

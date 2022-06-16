@@ -11,17 +11,15 @@ import Recommends from "../components/Recommends";
 const MovieDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const [visible, setVisible] = useState(false);
-  const [review, setReview] = useState(true);
+  const [visible, setVisible] = useState(false); //추천영화
+  const [review, setReview] = useState(true); //리뷰
 
-  const { detailMovies, loading, movieReview, movieRecommend,trailerVideo } = useSelector(
-    (state) => state.mov
-  );
+  const { detailMovies, loading, movieReview, movieRecommend, trailerVideo } =
+    useSelector((state) => state.mov);
 
   useEffect(() => {
     dispatch(movieAction.getMovieDetail(id));
-    window.scrollTo(0, 0)
-
+    window.scrollTo(0, 0);
   }, [id]);
 
   if (loading) {
@@ -31,8 +29,6 @@ const MovieDetail = () => {
       </div>
     );
   }
-
-  
 
   return (
     <div>

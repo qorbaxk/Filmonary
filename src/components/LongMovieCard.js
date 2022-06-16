@@ -3,10 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import moment from "moment";
 
+//Movies 페이지에서 쓰이는 영화카드
+
 const LongMovieCard = ({ item }) => {
   const { genreList } = useSelector((state) => state.mov);
   const navigate = useNavigate();
 
+  //카드 선택시 디테일페이지로 전환
   const gotoDetail = () => {
     navigate(`/movies/${item.id}`);
   };
@@ -29,7 +32,7 @@ const LongMovieCard = ({ item }) => {
           />
           <h1>{item.title}</h1>
         </div>
-        <div className="date">{moment(item.release_date).format('LL')}</div>
+        <div className="date">{moment(item.release_date).format("LL")}</div>
 
         {item.genre_ids?.map((id) => (
           <label className="LMC-badge">
@@ -37,12 +40,10 @@ const LongMovieCard = ({ item }) => {
           </label>
         ))}
 
-        <div className="explains">
-            {item.overview}
-        </div>
+        <div className="explains">{item.overview}</div>
 
         <div className="LMC-count">
-          <div >⭐ {item.vote_average}</div>
+          <div>⭐ {item.vote_average}</div>
           <div>👥 {item.popularity}</div>
           <div className={item.adult ? "r-red" : "r-green"}>
             {item.adult ? "R-rated" : "G-rated"}

@@ -30,22 +30,28 @@ function getMovies(keyword, page, sortResult) {
       );
 
       const sortMovieApi = api.get(
-        `/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=${sortResult?sortResult:"popularity.desc"}&include_adult=true&include_video=false&page=${page}`
-      )
+        `/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=${
+          sortResult ? sortResult : "popularity.desc"
+        }&include_adult=true&include_video=false&page=${page}`
+      );
 
       //3개의 데이터가 다 올때까지 기다림
       //하나하나 await 할 필요없이 이렇게 쓰면됨
-      let [popularMovies, topRatedMovies, upComingMovies, genreList,searchMovies,sortMovies] =
-        await Promise.all([
-          popularMovieApi,
-          topRatedApi,
-          upComingApi,
-          genreApi,
-          searchMovieApi,
-          sortMovieApi
-        ]);
-
-
+      let [
+        popularMovies,
+        topRatedMovies,
+        upComingMovies,
+        genreList,
+        searchMovies,
+        sortMovies,
+      ] = await Promise.all([
+        popularMovieApi,
+        topRatedApi,
+        upComingApi,
+        genreApi,
+        searchMovieApi,
+        sortMovieApi,
+      ]);
 
       dispatch(
         movieActions.getMainMovies({
@@ -94,7 +100,6 @@ function getMovieDetail(id) {
           trailerVideoApi,
         ]);
 
-     
       dispatch(
         movieActions.getDetailMovies({
           detailMovies: detailMovies.data,
@@ -109,6 +114,5 @@ function getMovieDetail(id) {
     }
   };
 }
-
 
 export const movieAction = { getMovies, getMovieDetail };
