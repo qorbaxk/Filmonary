@@ -69,6 +69,8 @@
   box-shadow: none;
 }
 
+
+
 .nav-item {
   text-decoration: none;
   margin-right: 20px;
@@ -618,7 +620,7 @@
 }
 
 .pagination .active {
-  background-color: #f79533;
+  background-color: #e50914;
   border-radius: 30%;
 }
 
@@ -626,4 +628,8 @@
 .search-input {
   color: black !important;
   border-color: black !important;
+}
+.search-input:focus{
+  outline: none;
+  box-shadow: none;
 }
