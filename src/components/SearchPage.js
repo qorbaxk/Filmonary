@@ -17,8 +17,6 @@ const SearchPage = ({
   let firstHalf = {};
   let secondHalf = {};
 
-  console.log("들어오나?", sortMovies);
-  console.log("어떻길래", searchMovies);
   //년도 필터
   const sortedYear = sortMovies.results
     .slice(0)
