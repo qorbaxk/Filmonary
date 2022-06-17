@@ -244,6 +244,7 @@
   .detail-img {
     width: 550px;
     text-align: center;
+    margin-bottom: 40px;
   }
 
   #ex-row {
@@ -275,6 +276,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 30px;
   }
   .badge-ex {
     padding-top: 20px;
