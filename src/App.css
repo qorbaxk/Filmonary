@@ -69,8 +69,6 @@
   box-shadow: none;
 }
 
-
-
 .nav-item {
   text-decoration: none;
   margin-right: 20px;
@@ -386,10 +384,6 @@
   height: 350px;
 }
 
-.line {
-  border-right: 1px solid white;
-}
-
 /*movies 페이지*/
 .accordion {
   margin-top: 70px;
@@ -629,7 +623,7 @@
   color: black !important;
   border-color: black !important;
 }
-.search-input:focus{
+.search-input:focus {
   outline: none;
   box-shadow: none;
 }
