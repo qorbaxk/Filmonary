@@ -56,12 +56,7 @@
 
 #navbar button {
   border-color: red;
-  background-color: black;
-}
-
-#navbar button:hover {
   background-color: red;
-  color: black;
 }
 
 #navbar button:focus {
@@ -93,8 +88,8 @@
 }
 
 .banner-info {
-  width: 40%;
-  margin-left: 100px;
+  width: 80%;
+  margin: auto;
   z-index: 1;
   color: white;
 }
@@ -406,6 +401,7 @@
 .accordion-button {
   border-bottom: 1px solid white;
   margin-bottom: 10px;
+  border-radius: 0 !important;
 }
 .accordion-button:focus {
   border-color: white;
@@ -631,7 +627,7 @@
 }
 
 /*footer*/
-.footer{
+.footer {
   margin-top: 40px;
   margin-bottom: 30px;
   padding-top: 30px;
