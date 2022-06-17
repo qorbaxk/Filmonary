@@ -505,6 +505,19 @@
   background-color: #e50914 !important;
 }
 
+@media screen and (max-width: 1024px) and (min-width:464px){
+  #page-row{
+    margin-right: auto;
+    margin-left: auto;
+  }
+  #page-row:first-child{
+    margin-left: -50px;
+    margin-right: -50px;
+  }
+}
+
+
+
 /*슬라이더*/
 
 .bar * {
@@ -692,6 +705,27 @@
   border-radius: 30%;
 }
 
+@media screen and (max-width: 464px) {
+ .page-align{
+  text-align: center;
+ }
+
+ .pagination *{
+  width: fit-content;
+}
+
+.pagination li {
+  width: 90%;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  text-align: center;
+  align-items: center;
+}
+}
+
+
 /*검색창*/
 .search-input {
   color: black !important;
@@ -707,6 +741,8 @@
   .footer {
     margin-top: 40px;
     margin-bottom: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
     padding-top: 30px;
     color: rgb(212, 212, 212);
     text-align: center;

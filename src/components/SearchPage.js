@@ -17,6 +17,8 @@ const SearchPage = ({
   let firstHalf = {};
   let secondHalf = {};
 
+  console.log("들어오나?", sortMovies);
+  console.log("어떻길래", searchMovies);
   //년도 필터
   const sortedYear = sortMovies.results
     .slice(0)
@@ -38,15 +40,19 @@ const SearchPage = ({
     .filter((it) => sortedGenre?.includes(it));
 
   //어떤것을 페이지화할지
-
-  if (searchMovies.results[0]?.title == "UNdefined") {
-    //제일 처음 보여지는 부분
-    firstHalf = sortMovies.results?.slice(0).filter((_, i) => i % 2 === 0);
-    secondHalf = sortMovies.results?.slice(0).filter((_, i) => i % 2 === 1);
-  } else if (searchMovies.results !== null || keyword !== null) {
+  if (searchMovies.results !== null || keyword !== null) {
     //검색했을 때
     firstHalf = searchMovies.results?.slice(0).filter((_, i) => i % 2 === 0);
     secondHalf = searchMovies.results?.slice(0).filter((_, i) => i % 2 === 1);
+  }
+
+  if (
+    searchMovies.results[0]?.title == "UNdefined" ||
+    (sortMovies.results !== null && keyword == null)
+  ) {
+    //제일 처음 보여지는 부분
+    firstHalf = sortMovies.results?.slice(0).filter((_, i) => i % 2 === 0);
+    secondHalf = sortMovies.results?.slice(0).filter((_, i) => i % 2 === 1);
   }
 
   //년도 필터링 했을 때
@@ -73,13 +79,13 @@ const SearchPage = ({
 
   return (
     <div>
-      <Row>
-        <Col lg={6}>
+      <Row id="page-row">
+        <Col lg={6} sm={6}>
           {firstHalf?.map((item) => (
             <LongMovieCard item={item} />
           ))}
         </Col>
-        <Col lg={6}>
+        <Col lg={6} sm={6}>
           {secondHalf?.map((item) => (
             <LongMovieCard item={item} />
           ))}

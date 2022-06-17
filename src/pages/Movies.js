@@ -130,17 +130,20 @@ const Movies = () => {
               keyword={keyword}
             />
           </Col>
+
+          <div className="page-align">
+            {keyword ? null : (
+              <Pagination
+                activePage={page}
+                hideDisabled={true}
+                itemsCountPerPage={20}
+                totalItemsCount={10000}
+                pageRangeDisplayed={5}
+                onChange={handlePageChange}
+              />
+            )}
+          </div>
         </Row>
-        {keyword ? null : (
-          <Pagination
-            activePage={page}
-            hideDisabled={true}
-            itemsCountPerPage={20}
-            totalItemsCount={10000}
-            pageRangeDisplayed={5}
-            onChange={handlePageChange}
-          />
-        )}
       </Container>
     </div>
   );
