@@ -22,8 +22,8 @@ const Trailer = ({ item }) => {
   });
 
   const opts = {
-    height: "600",
-    width: "1160",
+    // height: "600",
+    // width: "1160",
     playerVars: {
       autoplay: 0,
     },
