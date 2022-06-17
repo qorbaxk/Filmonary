@@ -10,7 +10,7 @@ const MovieExplain = ({ item, videoId }) => {
   return (
     <div>
       <Container id="detail-area">
-        <Row>
+        <Row id="ex-row">
           <Col>
             <img
               className="detail-img"
@@ -31,6 +31,7 @@ const MovieExplain = ({ item, videoId }) => {
               </span>
             </div>
             <div className="da-ex">{item.overview}</div>
+
             <div className="badge-ex">
               <div>
                 <label className="badge">Budget</label>
@@ -51,6 +52,7 @@ const MovieExplain = ({ item, videoId }) => {
                 </span>
               </div>
             </div>
+
             <div className="tr-btn">
               <Trailer item={videoId} />
             </div>

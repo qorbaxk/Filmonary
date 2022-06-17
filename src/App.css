@@ -103,10 +103,20 @@
 .container {
   cursor: pointer;
 }
-.card-area h1 {
-  font-family: "GmarketSansBold";
-  margin-left: 100px;
-  font-size: 30px;
+@media screen and (min-width: 464px) {
+  .card-area h1 {
+    font-family: "GmarketSansBold";
+    margin-left: 100px;
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 464px) {
+  .card-area h1 {
+    font-family: "GmarketSansBold";
+    margin-left: 50px;
+    font-size: 30px;
+  }
 }
 
 .card-slide {
@@ -229,9 +239,66 @@
   cursor: default;
 }
 
-.detail-img {
-  width: 550px;
-  text-align: center;
+/*pc버전*/
+@media screen and (min-width: 464px) {
+  .detail-img {
+    width: 550px;
+    text-align: center;
+  }
+
+  #ex-row {
+    text-align: center;
+  }
+
+  .badge-ex {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid white;
+    text-align: left;
+  }
+  .da-ex {
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    text-align: left;
+  }
+}
+
+/*모바일버전*/
+@media screen and (max-width: 464px) {
+  .detail-img {
+    width: 350px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .badge-ex {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid white;
+  }
+  .da-ex {
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+  }
+
+  .col:first-child {
+    text-align: center;
+    margin: auto;
+  }
+
+  .tr-btn {
+    text-align: center;
+  }
 }
 
 .badge {
@@ -255,22 +322,6 @@
   margin-right: 40px;
 }
 
-.da-ex {
-  font-size: 14px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
-}
-
-.badge-ex {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid white;
-}
-
 .badge-ex label {
   width: 130px;
   font-size: 14px;
@@ -289,7 +340,6 @@
   border-top: 3px solid #e50914;
   border-bottom: 3px solid #e50914;
   padding: 15px;
-
   margin-top: 30px;
   font-weight: 600;
   font-size: 14px;
@@ -316,20 +366,43 @@
 }
 
 /*리뷰창*/
+@media screen and (min-width: 464px) {
+  .rv-btn {
+    margin-top: 150px;
+    margin-left: 100px;
+  }
 
-.rv-btn {
-  margin-top: 150px;
-  margin-left: 100px;
+  .rv-btn button {
+    width: 230px;
+    height: 70px;
+    margin-right: 40px;
+    border-radius: 30px 30px 0 0;
+    border: 0;
+    font-family: "GmarketSansBold";
+    color: #e50914;
+  }
 }
+@media screen and (max-width: 464px) {
+  .rv-btn {
+    margin-top: 150px;
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+  }
 
-.rv-btn button {
-  width: 230px;
-  height: 70px;
-  margin-right: 40px;
-  border-radius: 30px 30px 0 0;
-  border: 0;
-  font-family: "GmarketSansBold";
-  color: #e50914;
+  .rv-btn button {
+    display: block;
+    width: 80px;
+    height: 70px;
+    margin-right: 40px;
+    border-radius: 30px 30px 0 0;
+    border: 0;
+    font-family: "GmarketSansBold";
+    font-size: 12px;
+    text-align: center;
+    padding-top: 10px;
+    color: #e50914;
+  }
 }
 
 .rv-btn button:first-child {
@@ -362,6 +435,7 @@
 
 .reviews div {
   font-size: 14px;
+  word-break: break-all;
 }
 
 .reviews p {
@@ -627,11 +701,27 @@
 }
 
 /*footer*/
-.footer {
-  margin-top: 40px;
-  margin-bottom: 30px;
-  padding-top: 30px;
-  color: rgb(212, 212, 212);
-  text-align: center;
-  border-top: 1px solid rgb(40, 40, 40);
+@media screen and (min-width: 464px) {
+  .footer {
+    margin-top: 40px;
+    margin-bottom: 30px;
+    padding-top: 30px;
+    color: rgb(212, 212, 212);
+    text-align: center;
+    border-top: 1px solid rgb(40, 40, 40);
+  }
+}
+
+@media screen and (max-width: 464px) {
+  .footer {
+    margin-top: 40px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 30px;
+    color: rgb(212, 212, 212);
+    text-align: center;
+    border-top: 1px solid rgb(40, 40, 40);
+    font-size: 13px;
+  }
 }
