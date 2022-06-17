@@ -46,7 +46,7 @@ const LongMovieCard = ({ item }) => {
           <div>⭐ {item.vote_average}</div>
           <div>👥 {item.popularity}</div>
           <div className={item.adult ? "r-red" : "r-green"}>
-            {item.adult ? "R-rated" : "G-rated"}
+            {item.adult ? "🔺 R-rated" : "✔️ G-rated"}
           </div>
         </div>
       </div>
