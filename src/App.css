@@ -90,6 +90,7 @@
 .banner-info {
   width: 80%;
   margin: auto;
+  margin-top: 500px;
   z-index: 1;
   color: white;
 }
