@@ -24,7 +24,7 @@ const Navigation = () => {
   const gotoSearch = (event) => {
     event.preventDefault();
 
-    if (keyword == "" || keyword == "undefined" ) {
+    if (keyword == "" || keyword == "undefined") {
       //검색어 없을 때
       dispatch(movieAction.getMovies(undefined, 1));
       navigate(`/movies`);
@@ -32,7 +32,6 @@ const Navigation = () => {
       //검색어 있을 때
       dispatch(movieAction.getMovies(keyword, 1));
       navigate(`/movies?query=${keyword}`);
-     
     }
   };
 
@@ -57,6 +56,9 @@ const Navigation = () => {
             </Link>
             <Link to="/movies" className="nav-item">
               Movies
+            </Link>
+            <Link to="/login" className="nav-item">
+              My Page
             </Link>
           </Nav>
           <Form className="d-flex search-area" onSubmit={gotoSearch}>

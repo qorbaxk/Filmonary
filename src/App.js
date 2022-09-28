@@ -9,12 +9,14 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 
 
+
 function App() {
   return (
     <div className='main' >
       <Navigation/>
       <Routes>
         <Route path='/' element={<Home/>}/>
+        
         <Route path='/movies' element={<Movies/>}/>
         <Route path='/movies/:id' element={<MovieDetail/>}/>
       </Routes>
