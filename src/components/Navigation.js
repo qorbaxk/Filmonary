@@ -57,7 +57,7 @@ const Navigation = () => {
             <Link to="/movies" className="nav-item">
               Movies
             </Link>
-            <Link to="/login" className="nav-item">
+            <Link to="/profile" className="nav-item">
               My Page
             </Link>
           </Nav>
