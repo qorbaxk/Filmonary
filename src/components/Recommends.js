@@ -14,14 +14,14 @@ const Recommends = ({ item }) => {
         <Row>
           <Col className="line">
             {firstHalf?.map((item) => (
-              <div className="re-card-area">
+              <div key={item.id} className="re-card-area">
                 <MovieCard item={item} />
               </div>
             ))}
           </Col>
           <Col>
             {secondHalf?.map((item) => (
-              <div className="re-card-area">
+              <div key={item.id} className="re-card-area">
                 <MovieCard item={item} />
               </div>
             ))}

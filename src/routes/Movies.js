@@ -107,6 +107,7 @@ const Movies = () => {
                     <h4>Generes</h4>
                     {genreList?.map((item) => (
                       <button
+                        key={item.id}
                         onClick={handleGenre}
                         value={item.name}
                         className="genre-btn color-6"

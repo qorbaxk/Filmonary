@@ -35,7 +35,7 @@ const LongMovieCard = ({ item }) => {
         <div className="date">{moment(item.release_date).format("LL")}</div>
 
         {item.genre_ids?.map((id) => (
-          <label className="LMC-badge">
+          <label key={id} className="LMC-badge">
             {genreList?.find((item) => item.id == id)?.name}
           </label>
         ))}

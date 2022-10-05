@@ -17,7 +17,7 @@ const MovieExplain = ({ item, videoId }) => {
           </Col>
           <Col>
             {item.genres?.map((item) => (
-              <label className="badge">{item.name}</label>
+              <label key={item.id} className="badge">{item.name}</label>
             ))}
             <h1>{item.title}</h1>
             <p>{item.tagline}</p>

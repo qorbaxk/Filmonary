@@ -80,12 +80,12 @@ const SearchPage = ({
       <Row id="page-row">
         <Col lg={6} sm={6}>
           {firstHalf?.map((item) => (
-            <LongMovieCard item={item} />
+            <LongMovieCard key={item.id} item={item} />
           ))}
         </Col>
         <Col lg={6} sm={6}>
           {secondHalf?.map((item) => (
-            <LongMovieCard item={item} />
+            <LongMovieCard key={item.id} item={item} />
           ))}
         </Col>
       </Row>

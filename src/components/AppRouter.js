@@ -10,6 +10,7 @@ import Footer from "./Footer";
 
 
 
+
 const AppRouter = ({isLoggedIn}) => {
   return (
     <div className="main">
