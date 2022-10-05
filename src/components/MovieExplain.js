@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import Trailer from "./Trailer";
 
 //디테일페이지의 영화 설명란

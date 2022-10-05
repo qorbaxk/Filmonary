@@ -13,18 +13,18 @@ import Footer from "./Footer";
 const AppRouter = ({isLoggedIn}) => {
   return (
     <div className="main">
-      <Navigation />
+      <Navigation isLoggedIn={isLoggedIn}/>
       <Routes>
-        <Route path="/" element={<Home />} />
+      {isLoggedIn ? (
+          <Route path="/" element={<Home />} />
+        ) : (
+          <Route path="/" element={<Auth />} />
+        )}
         <Route path="/movies" element={<Movies />} />
         <Route path="/movies/:id" element={<MovieDetail />} />
-        {isLoggedIn ? (
-          <Route path="/profile" element={<Profile />} />
-        ) : (
-          <Route path="/profile" element={<Auth />} />
-        )}
+        <Route path="/profile" element={<Profile />} />
       </Routes>
-      <Footer />
+      {isLoggedIn && <Footer />}
     </div>
   )
 }

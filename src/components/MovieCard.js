@@ -32,7 +32,7 @@ const MovieCard = ({ item }) => {
           <div className="content2">
             <h5>{item.title}</h5>
             {item.genre_ids?.map((id) => (
-              <label>{genreList.find((item) => item.id == id)?.name}ㅤ</label>
+              <label key={id}>{genreList.find((item) => item.id == id)?.name}ㅤ</label>
             ))}
 
             <div className="star">⭐ {item.vote_average}</div>

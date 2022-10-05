@@ -15,7 +15,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 // 맨위에 있는 메뉴와 검색창
 
-const Navigation = () => {
+const Navigation = ({isLoggedIn}) => {
   const [keyword, setKeyword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -44,6 +44,7 @@ const Navigation = () => {
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
           />
         </Navbar.Brand>
+        {isLoggedIn && <>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -74,6 +75,7 @@ const Navigation = () => {
             </Button>
           </Form>
         </Navbar.Collapse>
+        </>}
       </Container>
     </Navbar>
   );
