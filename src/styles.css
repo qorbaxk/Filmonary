@@ -948,6 +948,9 @@
   border: none!important;
   color: white;
   padding: 5px!important;
+  height: fit-content;
+  max-width: 890px;
+  margin: auto;
 }
 .ReactModal__Content h3{
   font-size: 30px;
@@ -957,15 +960,19 @@
 }
 .editImg-area{
   text-align: center;
+
 }
 .editImg{
   position: relative;
   margin: auto;
   text-align: center;
+  cursor: pointer;
+
 }
 .avatar2{
   width: 140px;
   border-radius: 5px;
+  
 }
 .caicon{
   background-color: black;
@@ -986,6 +993,7 @@
   padding: 3px;
   align-items: center;
   margin-bottom: 10px;
+  
 }
 .editInput:focus{
   outline: none;

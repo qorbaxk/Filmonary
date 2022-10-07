@@ -35,8 +35,24 @@ function App() {
 
   console.log("유저정보", userObj);
 
+  //유저 프로필 업뎃시 새로고침
+  const refreshUser = () => {
+    const user = authService.currentUser;
+    setUserObj({
+      displayName: user.displayName,
+      email: user.email,
+      uid: user.uid,
+      photoURL: user.photoURL,
+      updateProfile: (args) =>
+        updateProfile(user, {
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+        }),
+    });
+  };
+
   return (
-    <div>{init ? <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} /> : <Loading />}</div>
+    <div>{init ? <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} refreshUser={refreshUser}/> : <Loading />}</div>
   );
 }
 

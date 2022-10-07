@@ -2,7 +2,7 @@ import React from "react";
 import LogOut from "components/LogOut";
 import EditProfile from "components/EditProfile";
 
-const Profile = ({ userObj }) => {
+const Profile = ({ userObj, refreshUser }) => {
   return (
     <div className="profileArea">
       <div className="profileImage">
@@ -10,7 +10,7 @@ const Profile = ({ userObj }) => {
       </div>
       <label className="profileName">{userObj.displayName}</label>
       <div className="EditBtns">
-        <EditProfile userObj={userObj} />
+        <EditProfile userObj={userObj} refreshUser={refreshUser} />
         <LogOut />
       </div>
     </div>
