@@ -3,45 +3,67 @@ import Modal from "react-modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
 import { Container, Row, Col } from "react-bootstrap";
-import { authService, storageService } from "fBase";
+import { authService, storageService, dbService } from "fBase";
 import { updateProfile } from "firebase/auth";
 import { ref, uploadString, getDownloadURL } from "@firebase/storage";
 import { v4 } from "uuid";
+import { addDoc, collection } from "firebase/firestore";
 
 const EditProfile = ({ userObj, refreshUser }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
-  const [introduce, setIntroduce] = useState("");
   const [newProfilePhoto, setNewProfilePhoto] = useState(userObj.photoURL);
+  const [newIntroduction, setNewIntroduction] = useState(userObj.introduction);
 
   //프로필 수정
   const onSubmit = async (e) => {
     e.preventDefault();
-    let profilePhotoUrl = "";
 
-    //닉네임 변경됐을 때
-    if (userObj.displayName !== newDisplayName) {
-      await updateProfile(authService.currentUser, {
-        displayName: newDisplayName,
-      });
-      refreshUser();
-    }
+    try {
+      let profilePhotoUrl = "";
 
-    //사진 변경됐을 때
-    if (userObj.photoURL !== newProfilePhoto) {
-      const profilePhotoRef = ref(storageService, `${userObj.uid}/${v4()}`);
-      const response = await uploadString(
-        profilePhotoRef,
-        newProfilePhoto,
-        "data_url"
-      );
-      profilePhotoUrl = await getDownloadURL(response.ref);
+      //닉네임 변경됐을 때
+      if (userObj.displayName !== newDisplayName) {
+        await updateProfile(authService.currentUser, {
+          displayName: newDisplayName,
+        });
+        refreshUser();
+      }
 
-      await updateProfile(authService.currentUser, {
-        photoURL: profilePhotoUrl,
-      });
-      refreshUser();
+      //사진 변경됐을 때
+      if (userObj.photoURL !== newProfilePhoto) {
+        const profilePhotoRef = ref(storageService, `${userObj.uid}/${v4()}`);
+        const response = await uploadString(
+          profilePhotoRef,
+          newProfilePhoto,
+          "data_url"
+        );
+        profilePhotoUrl = await getDownloadURL(response.ref);
+
+        await updateProfile(authService.currentUser, {
+          photoURL: profilePhotoUrl
+        });
+        refreshUser();
+      }
+
+      //소개 변경됐을 때
+      // if (userObj.introduction !== newIntroduction) {
+
+      //   const itdObj = {
+      //     text: newIntroduction,
+      //     creatorId: userObj.uid,
+      //   }
+
+      //   await addDoc(collection(dbService, "introductions"),itdObj);
+
+      //   // await updateProfile(authService.currentUser, {
+      //   //   introduction: newIntroduction,
+      //   // });
+      //   // refreshUser(newIntroduction);
+      // }
       setModalIsOpen(false);
+    } catch (error) {
+      console.error("Error adding document:", error);
     }
   };
 
@@ -104,13 +126,13 @@ const EditProfile = ({ userObj, refreshUser }) => {
                   value={newDisplayName}
                   className="editInput"
                 />
-                <label>About you {`(${introduce.length}/60)`}</label>
+                {/* <label>About you {`(${newIntroduction.length}/60)`}</label> */}
                 <input
                   type="text"
                   autoFocus
-                  placeholder="Hello!"
-                  onChange={(e) => setIntroduce(e.target.value)}
-                  value={introduce}
+                  placeholder="about you"
+                  onChange={(e) => setNewIntroduction(e.target.value)}
+                  value={newIntroduction}
                   className="editInput"
                   maxLength={60}
                 />
