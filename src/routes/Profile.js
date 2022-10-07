@@ -1,9 +1,20 @@
-import React from 'react'
+import React from "react";
+import LogOut from "components/LogOut";
+import EditProfile from "components/EditProfile";
 
-const Profile = () => {
+const Profile = ({ userObj }) => {
   return (
-    <div>Profile</div>
-  )
-}
+    <div className="profileArea">
+      <div className="profileImage">
+        <img src={userObj.photoURL} alt="Avatar" className="avatar" />
+      </div>
+      <label className="profileName">{userObj.displayName}</label>
+      <div className="EditBtns">
+        <EditProfile userObj={userObj} />
+        <LogOut />
+      </div>
+    </div>
+  );
+};
 
-export default Profile
+export default Profile;

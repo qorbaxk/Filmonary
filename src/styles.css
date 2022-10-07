@@ -47,6 +47,7 @@
 #navbar * {
   color: white;
   font-size: 14px;
+  
 }
 
 #navbar img {
@@ -57,6 +58,7 @@
 #navbar button {
   border-color: red;
   background-color: red;
+ 
 }
 
 #navbar button:focus {
@@ -69,7 +71,9 @@
   margin-right: 20px;
   margin-bottom: 5px;
   margin-top: 5px;
+
 }
+
 
 /*배너 디자인*/
 .banner {
@@ -893,4 +897,127 @@
   font-size: 12px;
   text-decoration: underline;
   text-underline-position: under;
+}
+
+
+/*마이페이지*/
+.profileArea {
+  color: white;
+  height: 100vh;
+}
+.EditBtns{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.EditBtn{
+  border: 1px solid #2c2c2c;
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer;
+  background-color: #000;
+  color: white;
+  width: 150px;
+  text-align: center;
+  align-items: center;
+  margin: 5px;
+  font-size: 13px;
+}
+.profileImage{
+  display: flex;
+  justify-content: center;
+}
+.avatar{
+  width: 70px;
+  border-radius: 5px;
+}
+.profileName{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+/*프로필 수정 팝업*/
+.ReactModal__Overlay{
+  background: black !important;
+  text-align: left;
+}
+.ReactModal__Content{
+  background-color: black !important;
+  border: none!important;
+  color: white;
+  padding: 5px!important;
+}
+.ReactModal__Content h3{
+  font-size: 30px;
+  font-weight: bold;
+  border-bottom: 1px solid #737373;
+  padding-bottom: 10px;
+}
+.editImg-area{
+  text-align: center;
+}
+.editImg{
+  position: relative;
+  margin: auto;
+  text-align: center;
+}
+.avatar2{
+  width: 140px;
+  border-radius: 5px;
+}
+.caicon{
+  background-color: black;
+  box-shadow: 1px 1px 1px 1px rgb(49, 48, 48);
+  padding: 5px;
+  border-radius: 50%;
+  position: absolute;
+  top: 60px;
+  left: 58px;
+}
+.editText-area label{
+  font-size: 12px;
+}
+.editInput{
+  width: 100%;
+  background-color: #666;
+  color: white;
+  padding: 3px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.editInput:focus{
+  outline: none;
+}
+.editInput::placeholder{
+  color: white;
+}
+.editBtns{
+  border-top: 1px solid #737373;
+  margin-top: 10px;
+  padding-top: 20px;
+}
+.editBtns button{
+  margin: 0px 20px 20px 0px;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 12px;
+}
+.saveBtn{
+  border: 2px solid white;
+}
+.saveBtn:hover{
+  background-color: #e50914;
+  border-color: #e50914;
+  color: white;
+}
+.cancelBtn{
+  background-color: black;
+  color: #737373;
+  border:2px solid #737373 ;
+}
+.cancelBtn:hover{
+  color: white;
+  border-color: white;
 }

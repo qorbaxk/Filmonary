@@ -11,7 +11,7 @@ import Footer from "./Footer";
 
 
 
-const AppRouter = ({isLoggedIn}) => {
+const AppRouter = ({isLoggedIn, userObj}) => {
   return (
     <div className="main">
       <Navigation isLoggedIn={isLoggedIn}/>
@@ -23,7 +23,7 @@ const AppRouter = ({isLoggedIn}) => {
         )}
         <Route path="/movies" element={<Movies />} />
         <Route path="/movies/:id" element={<MovieDetail />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile userObj={userObj}/>} />
       </Routes>
       {isLoggedIn && <Footer />}
     </div>

@@ -15,7 +15,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 // 맨위에 있는 메뉴와 검색창
 
-const Navigation = ({isLoggedIn}) => {
+const Navigation = ({ isLoggedIn }) => {
   const [keyword, setKeyword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -44,38 +44,40 @@ const Navigation = ({isLoggedIn}) => {
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
           />
         </Navbar.Brand>
-        {isLoggedIn && <>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: "100px" }}
-            navbarScroll
-          >
-            <Link to="/" className="nav-item">
-              Home
-            </Link>
-            <Link to="/movies" className="nav-item">
-              Movies
-            </Link>
-            <Link to="/profile" className="nav-item">
-              My Page
-            </Link>
-          </Nav>
-          <Form className="d-flex search-area" onSubmit={gotoSearch}>
-            <FormControl
-              type="search"
-              placeholder="Search"
-              className="me-2 search-input"
-              aria-label="Search"
-              onChange={(event) => setKeyword(event.target.value)}
-            />
-            <Button type="submit">
-              <FontAwesomeIcon icon={faSearch} className="search-icon" />
-            </Button>
-          </Form>
-        </Navbar.Collapse>
-        </>}
+        {isLoggedIn && (
+          <>
+            <Navbar.Toggle aria-controls="navbarScroll" />
+            <Navbar.Collapse id="navbarScroll">
+              <Nav
+                className="me-auto my-2 my-lg-0"
+                style={{ maxHeight: "100px" }}
+                navbarScroll
+              >
+                <Link to="/" className="nav-item">
+                  Home
+                </Link>
+                <Link to="/movies" className="nav-item">
+                  Movies
+                </Link>
+                <Link to="/profile" className="nav-item">
+                  My Page
+                </Link>
+              </Nav>
+              <Form className="d-flex search-area" onSubmit={gotoSearch}>
+                <FormControl
+                  type="search"
+                  placeholder="Search"
+                  className="me-2 search-input"
+                  aria-label="Search"
+                  onChange={(event) => setKeyword(event.target.value)}
+                />
+                <Button type="submit">
+                  <FontAwesomeIcon icon={faSearch} className="search-icon" />
+                </Button>
+              </Form>
+            </Navbar.Collapse>
+          </>
+        )}
       </Container>
     </Navbar>
   );
