@@ -10,7 +10,6 @@ const Profile = ({ userObj, refreshUser }) => {
         <img src={userObj.photoURL} alt="Avatar" className="avatar" />
       </div>
       <label className="profileName">{userObj.displayName}</label>
-      {/* <p className="profileIntro">{userObj.introduction}</p> */}
       <div className="EditBtns">
         <EditProfile userObj={userObj} refreshUser={refreshUser} />
         <LogOut />

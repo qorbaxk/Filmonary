@@ -342,17 +342,42 @@
   font-weight: 500;
 }
 
+/*좋아요 버튼*/
+.btns-area{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+.btns-area label{
+  margin: 5px;
+  cursor: pointer;
+}
+.heartbtn-area{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  cursor: pointer;
+}
+
 #tr-btn {
   background-color: black;
   border: 0;
   border-radius: 0;
-  border-top: 3px solid #e50914;
-  border-bottom: 3px solid #e50914;
-  padding: 15px;
-  margin-top: 30px;
-  font-weight: 600;
-  font-size: 14px;
+  padding: 0;
   color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  cursor: pointer;
+}
+
+#tr-btn svg{
+  margin: auto;
+}
+#tr-btn:focus{
+  outline: none;
+  border: 0;
+  box-shadow: none;
 }
 
 /*트레일러*/
@@ -955,7 +980,7 @@
   color: white;
   padding: 5px!important;
   height: fit-content;
-  max-width: 890px;
+  max-width: 560px;
   margin: auto;
 }
 .ReactModal__Content h3{
@@ -991,17 +1016,20 @@
   top: 60px;
   left: 58px;
 }
+.editText-area{
+  text-align: center;
+  max-width: 320px;
+  margin: auto;
+  margin-top: 10px;
+}
 .editText-area label{
-  font-size: 12px;
+  padding-right: 20px;
 }
 .editInput{
-  width: 100%;
   background-color: #666;
   color: white;
   padding: 3px;
   align-items: center;
-  margin-bottom: 10px;
-  
 }
 .editInput:focus{
   outline: none;

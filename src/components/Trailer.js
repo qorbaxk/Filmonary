@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import YouTube from "react-youtube";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
 
 //영화 트레일러(예고편) 보여주기
 
@@ -33,8 +35,9 @@ const Trailer = ({ item }) => {
 
   return (
     <div>
-      <Button id="tr-btn" variant="primary" onClick={() => setShow(true)}>
-        🍿 Watch Trailer
+      <Button id="tr-btn" onClick={() => setShow(true)}>
+      <FontAwesomeIcon icon={faPlay} size="2x"/>
+      <label>Play Trailer</label>
       </Button>
       <Modal
         show={show}

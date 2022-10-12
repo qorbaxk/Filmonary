@@ -7,13 +7,11 @@ import { authService, storageService, dbService } from "fBase";
 import { updateProfile } from "firebase/auth";
 import { ref, uploadString, getDownloadURL } from "@firebase/storage";
 import { v4 } from "uuid";
-import { addDoc, collection } from "firebase/firestore";
 
 const EditProfile = ({ userObj, refreshUser }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
   const [newProfilePhoto, setNewProfilePhoto] = useState(userObj.photoURL);
-  const [newIntroduction, setNewIntroduction] = useState(userObj.introduction);
 
   //프로필 수정
   const onSubmit = async (e) => {
@@ -41,26 +39,11 @@ const EditProfile = ({ userObj, refreshUser }) => {
         profilePhotoUrl = await getDownloadURL(response.ref);
 
         await updateProfile(authService.currentUser, {
-          photoURL: profilePhotoUrl
+          photoURL: profilePhotoUrl,
         });
         refreshUser();
       }
 
-      //소개 변경됐을 때
-      // if (userObj.introduction !== newIntroduction) {
-
-      //   const itdObj = {
-      //     text: newIntroduction,
-      //     creatorId: userObj.uid,
-      //   }
-
-      //   await addDoc(collection(dbService, "introductions"),itdObj);
-
-      //   // await updateProfile(authService.currentUser, {
-      //   //   introduction: newIntroduction,
-      //   // });
-      //   // refreshUser(newIntroduction);
-      // }
       setModalIsOpen(false);
     } catch (error) {
       console.error("Error adding document:", error);
@@ -95,62 +78,42 @@ const EditProfile = ({ userObj, refreshUser }) => {
         ariaHideApp={false}
       >
         <form onSubmit={onSubmit}>
-          <Container>
-            <Row>
-              <h3>Edit your Profile</h3>
-              <Col lg={2} sm={6}>
-                <div className="editImg-area">
-                  <label htmlFor="file-input" className="editImg">
-                    <img
-                      src={newProfilePhoto}
-                      alt="Avatar"
-                      className="avatar2"
-                    />
-                    <FontAwesomeIcon icon={faCamera} className="caicon" />
-                  </label>
-                  <input
-                    id="file-input"
-                    type="file"
-                    style={{ display: "none" }}
-                    onChange={onUploadPhoto}
-                  />
-                </div>
-              </Col>
-              <Col lg={10} sm={6} className="editText-area">
-                <label>Your name</label>
-                <input
-                  type="text"
-                  autoFocus
-                  placeholder="name"
-                  onChange={(e) => setNewDisplayName(e.target.value)}
-                  value={newDisplayName}
-                  className="editInput"
-                />
-                {/* <label>About you {`(${newIntroduction.length}/60)`}</label> */}
-                <input
-                  type="text"
-                  autoFocus
-                  placeholder="about you"
-                  onChange={(e) => setNewIntroduction(e.target.value)}
-                  value={newIntroduction}
-                  className="editInput"
-                  maxLength={60}
-                />
-              </Col>
-              <div className="editBtns">
-                <button type="submit" className="saveBtn">
-                  Save
-                </button>
-                <button
-                  className="cancelBtn"
-                  onClick={() => setModalIsOpen(false)}
-                  type="button"
-                >
-                  Cancel
-                </button>
-              </div>
-            </Row>
-          </Container>
+          <h3>Edit your Profile</h3>
+
+          <div className="editImg-area">
+            <label htmlFor="file-input" className="editImg">
+              <img src={newProfilePhoto} alt="Avatar" className="avatar2" />
+              <FontAwesomeIcon icon={faCamera} className="caicon" />
+            </label>
+            <input
+              id="file-input"
+              type="file"
+              style={{ display: "none" }}
+              onChange={onUploadPhoto}
+            />
+          </div>
+          <div className="editText-area">
+            <label>name</label>
+            <input
+              type="text"
+              autoFocus
+              onChange={(e) => setNewDisplayName(e.target.value)}
+              value={newDisplayName}
+              className="editInput"
+            />
+          </div>
+          <div className="editBtns">
+            <button type="submit" className="saveBtn">
+              Save
+            </button>
+            <button
+              className="cancelBtn"
+              onClick={() => setModalIsOpen(false)}
+              type="button"
+            >
+              Cancel
+            </button>
+          </div>
         </form>
       </Modal>
     </>

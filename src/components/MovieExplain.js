@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import HeartBtn from "./HeartBtn";
 import Trailer from "./Trailer";
 
 //디테일페이지의 영화 설명란
@@ -17,7 +18,9 @@ const MovieExplain = ({ item, videoId }) => {
           </Col>
           <Col>
             {item.genres?.map((item) => (
-              <label key={item.id} className="badge">{item.name}</label>
+              <label key={item.id} className="badge">
+                {item.name}
+              </label>
             ))}
             <h1>{item.title}</h1>
             <p>{item.tagline}</p>
@@ -51,7 +54,8 @@ const MovieExplain = ({ item, videoId }) => {
               </div>
             </div>
 
-            <div className="tr-btn">
+            <div className="btns-area">
+              <HeartBtn />
               <Trailer item={videoId} />
             </div>
           </Col>
