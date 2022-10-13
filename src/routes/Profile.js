@@ -2,6 +2,7 @@ import React from "react";
 import LogOut from "components/LogOut";
 import EditProfile from "components/EditProfile";
 
+
 const Profile = ({ userObj, refreshUser }) => {
 
   return (
@@ -13,6 +14,10 @@ const Profile = ({ userObj, refreshUser }) => {
       <div className="EditBtns">
         <EditProfile userObj={userObj} refreshUser={refreshUser} />
         <LogOut />
+      </div>
+      <div className="profileList">
+        <h2>My List</h2>
+        
       </div>
     </div>
   );

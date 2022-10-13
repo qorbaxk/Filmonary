@@ -1065,3 +1065,14 @@
   color: white;
   border-color: white;
 }
+
+/*찜목록*/
+.profileList{
+  margin-top: 30px;
+  border-top: 1px solid rgb(40, 40, 40) ;
+  padding: 20px 30px;
+}
+
+.profileList h2{
+  font-weight: bold;
+}

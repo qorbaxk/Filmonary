@@ -1,9 +1,9 @@
 import { getAuth, onAuthStateChanged, updateProfile } from "firebase/auth";
-import { authService, dbService } from "fBase";
+import { authService } from "fBase";
 import React, { useEffect, useState } from "react";
 import AppRouter from "./AppRouter";
 import Loading from "./Loading";
-import { setDoc, doc, updateDoc } from "firebase/firestore";
+
 
 function App() {
   const [init, setInit] = useState(false);
@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     const auth = getAuth();
-    onAuthStateChanged(auth, async (user) => {
+    onAuthStateChanged(auth, (user) => {
       if (user) {
         setIsLoggedIn(true);
         setUserObj({
@@ -25,9 +25,6 @@ function App() {
           email: user.email,
           uid: user.uid,
           photoURL: user.photoURL === null ? basicProfile : user.photoURL,
-        });
-        await setDoc(doc(dbService, "users", user.uid), userObj, {
-          merge: true,
         });
       } else {
         setIsLoggedIn(false);
@@ -53,11 +50,6 @@ function App() {
           displayName: user.displayName,
           photoURL: user.photoURL === null ? basicProfile : user.photoURL,
         }),
-    });
-
-    await updateDoc(doc(dbService, "users", user.uid), {
-      displayName: user.displayName,
-      photoURL: user.photoURL === null ? basicProfile : user.photoURL,
     });
   };
 
