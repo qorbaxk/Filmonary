@@ -47,7 +47,6 @@
 #navbar * {
   color: white;
   font-size: 14px;
-  
 }
 
 #navbar img {
@@ -58,7 +57,6 @@
 #navbar button {
   border-color: red;
   background-color: red;
- 
 }
 
 #navbar button:focus {
@@ -71,9 +69,7 @@
   margin-right: 20px;
   margin-bottom: 5px;
   margin-top: 5px;
-
 }
-
 
 /*배너 디자인*/
 .banner {
@@ -343,16 +339,16 @@
 }
 
 /*좋아요 버튼*/
-.btns-area{
+.btns-area {
   display: flex;
   justify-content: space-around;
   margin-top: 30px;
 }
-.btns-area label{
+.btns-area label {
   margin: 5px;
   cursor: pointer;
 }
-.heartbtn-area{
+.heartbtn-area {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -371,10 +367,10 @@
   cursor: pointer;
 }
 
-#tr-btn svg{
+#tr-btn svg {
   margin: auto;
 }
-#tr-btn:focus{
+#tr-btn:focus {
   outline: none;
   border: 0;
   box-shadow: none;
@@ -630,6 +626,7 @@
   border-radius: 30px;
   margin-bottom: 40px;
   display: flex;
+  cursor: pointer;
 }
 .LMC-info {
   background: linear-gradient(90deg, #0d0d0c 50%, transparent);
@@ -874,15 +871,15 @@
   background-color: white;
   display: flex;
   justify-content: center;
-  z-index: 999; 
+  z-index: 999;
 }
 
 .authBtn svg {
   margin: 12px;
-  pointer-events: none; 
+  pointer-events: none;
 }
-.authBtn img{
-  pointer-events: none; 
+.authBtn img {
+  pointer-events: none;
 }
 
 .authInput {
@@ -924,18 +921,16 @@
   text-underline-position: under;
 }
 
-
 /*마이페이지*/
 .profileArea {
   color: white;
-  height: 100vh;
 }
-.EditBtns{
+.EditBtns {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
-.EditBtn{
+.EditBtn {
   border: 1px solid #2c2c2c;
   border-radius: 10px;
   padding: 5px;
@@ -948,66 +943,63 @@
   margin: 5px;
   font-size: 10px;
 }
-.profileImage{
+.profileImage {
   display: flex;
   justify-content: center;
 }
-.avatar{
+.avatar {
   width: 70px;
   height: 70px;
   object-fit: cover;
   border-radius: 5px;
 }
-.profileName{
+.profileName {
   display: flex;
   justify-content: center;
   margin-top: 20px;
   font-size: 40px;
 }
-.profileIntro{
+.profileIntro {
   display: flex;
   justify-content: center;
   font-size: 15px;
 }
 /*프로필 수정 팝업*/
-.ReactModal__Overlay{
+.ReactModal__Overlay {
   background: black !important;
   text-align: left;
 }
-.ReactModal__Content{
+.ReactModal__Content {
   background-color: black !important;
-  border: none!important;
+  border: none !important;
   color: white;
-  padding: 5px!important;
+  padding: 5px !important;
   height: fit-content;
   max-width: 560px;
   margin: auto;
 }
-.ReactModal__Content h3{
+.ReactModal__Content h3 {
   font-size: 30px;
   font-weight: bold;
   border-bottom: 1px solid #737373;
   padding-bottom: 10px;
 }
-.editImg-area{
+.editImg-area {
   text-align: center;
-
 }
-.editImg{
+.editImg {
   position: relative;
   margin: auto;
   text-align: center;
   cursor: pointer;
-
 }
-.avatar2{
+.avatar2 {
   width: 140px;
   height: 140px;
   border-radius: 5px;
   object-fit: cover;
-  
 }
-.caicon{
+.caicon {
   background-color: black;
   box-shadow: 1px 1px 1px 1px rgb(49, 48, 48);
   padding: 5px;
@@ -1016,63 +1008,69 @@
   top: 60px;
   left: 58px;
 }
-.editText-area{
+.editText-area {
   text-align: center;
   max-width: 320px;
   margin: auto;
   margin-top: 10px;
 }
-.editText-area label{
+.editText-area label {
   padding-right: 20px;
 }
-.editInput{
+.editInput {
   background-color: #666;
   color: white;
   padding: 3px;
   align-items: center;
 }
-.editInput:focus{
+.editInput:focus {
   outline: none;
 }
-.editInput::placeholder{
+.editInput::placeholder {
   color: white;
 }
-.editBtns{
+.editBtns {
   border-top: 1px solid #737373;
   margin-top: 10px;
   padding-top: 20px;
 }
-.editBtns button{
+.editBtns button {
   margin: 0px 20px 20px 0px;
   padding: 5px 10px;
   font-weight: bold;
   font-size: 12px;
 }
-.saveBtn{
+.saveBtn {
   border: 2px solid white;
 }
-.saveBtn:hover{
+.saveBtn:hover {
   background-color: #e50914;
   border-color: #e50914;
   color: white;
 }
-.cancelBtn{
+.cancelBtn {
   background-color: black;
   color: #737373;
-  border:2px solid #737373 ;
+  border: 2px solid #737373;
 }
-.cancelBtn:hover{
+.cancelBtn:hover {
   color: white;
   border-color: white;
 }
 
 /*찜목록*/
-.profileList{
+.profileList {
   margin-top: 30px;
-  border-top: 1px solid rgb(40, 40, 40) ;
+  border-top: 1px solid rgb(40, 40, 40);
   padding: 20px 30px;
 }
 
-.profileList h2{
+.profileList h2 {
   font-weight: bold;
+}
+
+.mycardList {
+  display: flex;
+  min-height: 100vh;
+  max-height: fit-content;
 }
