@@ -9,6 +9,7 @@ import SearchPage from "../components/SearchPage";
 import Pagination from "react-js-pagination";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useSearchParams, useNavigate } from "react-router-dom";
+import SearchBtn from "components/SearchBtn";
 
 const Movies = () => {
   const [query, setQuery] = useSearchParams();
@@ -56,6 +57,7 @@ const Movies = () => {
       <Container>
         <Row>
           <Col lg={4}>
+            <SearchBtn/>
             <Accordion defaultActiveKey="0">
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Sort</Accordion.Header>

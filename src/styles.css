@@ -789,6 +789,9 @@
 }
 
 /*검색창*/
+.search-area{
+  margin-top: 40px;
+}
 .search-input {
   color: black !important;
   border-color: black !important;
@@ -796,6 +799,10 @@
 .search-input:focus {
   outline: none;
   box-shadow: none;
+}
+.search-btn{
+  background-color: #e50914 !important;
+  border-color: #e50914 !important;
 }
 
 /*footer*/

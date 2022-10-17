@@ -2,16 +2,7 @@ import React, { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import {
-  collection,
-  onSnapshot,
-  query,
-  DocumentSnapshot,
-  setDoc,
-  doc,
-  deleteDoc,
-  getDoc,
-} from "firebase/firestore";
+import { setDoc, doc, deleteDoc, getDoc } from "firebase/firestore";
 import { dbService } from "fBase";
 import { getAuth } from "firebase/auth";
 
@@ -35,7 +26,7 @@ const HeartBtn = ({ item }) => {
   const existMyList = async () => {
     const userRef = doc(dbService, auth.currentUser.uid, listObj.title);
     const userSnap = await getDoc(userRef);
-    if (userSnap.exists()) { 
+    if (userSnap.exists()) {
       setHeart(true);
     } else {
       setHeart(false);
