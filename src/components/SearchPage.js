@@ -48,8 +48,6 @@ const SearchPage = ({
     firstHalf = sortMovies.results?.slice(0).filter((_, i) => i % 2 === 0);
     secondHalf = sortMovies.results?.slice(0).filter((_, i) => i % 2 === 1);
   }
-  console.log("서치", searchMovies.results);
-  console.log("기본", sortMovies.results);
 
   //년도 필터링 했을 때
   if (minValue !== 1990 || maxValue !== 2022) {
@@ -59,7 +57,7 @@ const SearchPage = ({
     }
   }
 
-  //장르 필터링 했을 때
+  //장르 필터링 했을 때g
   if (sameGenreId) {
     firstHalf = sortedGenre?.slice(0).filter((_, i) => i % 2 === 0);
     secondHalf = sortedGenre?.slice(0).filter((_, i) => i % 2 === 1);
