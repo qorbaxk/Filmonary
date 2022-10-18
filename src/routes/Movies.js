@@ -57,7 +57,7 @@ const Movies = () => {
       <Container>
         <Row>
           <Col lg={4}>
-            <SearchBtn/>
+            <SearchBtn />
             <Accordion defaultActiveKey="0">
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Sort</Accordion.Header>

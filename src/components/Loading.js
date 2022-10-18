@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const Loading = () => {
   return (
     <div className="spinner">
-        <ClipLoader color="red" size={150} />
+      <ClipLoader color="red" size={150} />
     </div>
-  )
-}
+  );
+};
 
-export default Loading
+export default Loading;

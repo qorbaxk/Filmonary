@@ -14,8 +14,6 @@ const LongMovieCard = ({ item }) => {
     navigate(`/movies/${item.id}`);
   };
 
-
-
   return (
     <div
       className="LMC"

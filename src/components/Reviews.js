@@ -7,7 +7,6 @@ import moment from "moment";
 const Reviews = ({ item }) => {
   //리뷰 역순으로(최근작성순으로 위에서부터 보여줌)
   let arr = item.results?.slice(0).reverse();
-  
 
   return (
     <Container>

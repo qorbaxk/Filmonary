@@ -36,8 +36,8 @@ const Trailer = ({ item }) => {
   return (
     <div>
       <Button id="tr-btn" onClick={() => setShow(true)}>
-      <FontAwesomeIcon icon={faPlay} size="2x"/>
-      <label>Play Trailer</label>
+        <FontAwesomeIcon icon={faPlay} size="2x" />
+        <label>Play Trailer</label>
       </Button>
       <Modal
         show={show}

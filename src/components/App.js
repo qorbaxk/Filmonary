@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import AppRouter from "./AppRouter";
 import Loading from "./Loading";
 
-
 function App() {
   const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -33,8 +32,6 @@ function App() {
       setInit(true);
     });
   }, []);
-
-  console.log("유저정보", userObj);
 
   //유저 프로필 업뎃시 새로고침
   const refreshUser = async () => {

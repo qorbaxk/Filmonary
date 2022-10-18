@@ -6,7 +6,6 @@ import Trailer from "./Trailer";
 //디테일페이지의 영화 설명란
 
 const MovieExplain = ({ item, videoId }) => {
-
   return (
     <div>
       <Container id="detail-area">
@@ -56,7 +55,7 @@ const MovieExplain = ({ item, videoId }) => {
             </div>
 
             <div className="btns-area">
-              <HeartBtn item={item}/>
+              <HeartBtn item={item} />
               <Trailer item={videoId} />
             </div>
           </Col>

@@ -8,7 +8,7 @@ function getMovies(keyword, page, sortResult) {
   return async (dispatch) => {
     try {
       dispatch(movieActions.getMoviesRequest());
-      //동시에 api 여러개 호출하는 법
+      //동시에 api 여러개 호출
       const popularMovieApi = api.get(
         `/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`
       );
@@ -35,8 +35,6 @@ function getMovies(keyword, page, sortResult) {
         }&include_adult=true&include_video=false&page=${page}`
       );
 
-      //3개의 데이터가 다 올때까지 기다림
-      //하나하나 await 할 필요없이 이렇게 쓰면됨
       let [
         popularMovies,
         topRatedMovies,

@@ -7,7 +7,6 @@ import { dbService } from "fBase";
 import { getAuth } from "firebase/auth";
 
 const HeartBtn = ({ item }) => {
-  //true 면 찜하지 않은 영화 false면 찜한영화
   const [heart, setHeart] = useState(null);
   const listObj = item;
   const auth = getAuth();
