@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# NETFLIX 프로젝트
+![실행](https://user-images.githubusercontent.com/97217443/196349036-76c5a52c-0cc2-4ce0-944a-d1337bc8fc1c.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+인기영화들과 영화정보를 알 수 있고, 영화 검색이 가능한 사이트입니다<br>
 
-In the project directory, you can run:
+데모 >> https://qorflix.netlify.app/
 
-### `npm start`
+***
+## 기능
+* 인기작품, 평점이 높은 작품, 상영 예정인 작품을 슬라이드를 넘기며 볼 수 있다
+* 각 영화에 마우스를 올리면 세부정보를 알 수 있고 클릭시 세부페이지로 넘어간다
+* 세부페이지에서는 영화의 정보와 함께 트레일러(예고편)을 볼 수 있다
+* 또한 영화의 리뷰와 그 영화와 비슷한 추천영화도 받아 볼 수 있다
+* movies 챕터에서는 인기순, 흥행순 등으로 정렬하여 영화를 볼 수 있고
+* 필터를 통하여 원하는 연도, 장르를 골라 볼 수 있다
+* 검색을 통하여 원하는 영화를 찾을 수 있다
+* 반응형 UI로 제작하여 pc,태블릿,모바일 어디서든 편리하게 사용이 가능하다
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 아쉬운 점
+* db를 사용하여 내가 찜한 목록을 만들고 싶다 >> 추가완료
+* 선택한 영화를 어느 플랫폼(OTT)에서 볼 수 있는지도 나타내고 싶다
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+***
+## + 2022.10 기능 추가
+* 로그인 기능을 추가하여 회원만 사이트를 볼 수 있게하였다
+* 기본적인 이메일 가입 뿐 아니라 소셜아이디로도 로그인이 가능하다
+* 본인의 닉네임과 프로필 사진도 변경 가능하다 
+* 회원제로 바꾸었기 때문에 원하는 영화를 찜하여 자신의 목록에 추가할 수 있다
 
-### `npm test`
+### + 2022.11.01 update
+* 크롬에서 도메인 사용 불가가 되어 도메인 변경
+* 회원가입시 유효성 검사 추가
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## 더 추가하고 싶은 기능
+* 현재는 다른 사람들의 리뷰만 볼 수 있는데, 자신의 리뷰를 남길 수 있게 하고싶다
+* 영화만 제공하고 있는데, 다른 api를 사용하여 TV시리즈도 제공하고 싶다
+* 찜한 목록들을 현재는 abc순으로 정렬해서 보여주고 있는데, 별점순, 인기순 등 다르게 정렬할 수 있는 방법을 추가하고 싶다
+* 현재는 제목으로만 영화 검색이 가능한데, 등장 배우들 데이터를 이용하여 배우 이름으로도 검색이 가능하게 하고싶다
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 사용한 기술
+* React 
+* Redux
+* React Bootstrap
+* firebase
