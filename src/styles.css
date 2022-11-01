@@ -898,6 +898,7 @@
   color: black;
 }
 
+
 .authSubmit {
   text-align: center;
   background: #e50914;
@@ -905,16 +906,22 @@
   margin-top: 10px;
   cursor: pointer;
 }
+.authSubmit:disabled{
+  background-color: #666;
+  color: #2c2c2c;
+}
 
 .authError {
   color: rgb(255, 255, 0);
   text-align: center;
   font-weight: 500;
   font-size: 12px;
+  padding-bottom: 5px;
 }
 
 .authSwitch {
   color: #e50914;
+  background-color: black;
   cursor: pointer;
   margin-top: 10px;
   margin-bottom: 50px;
